@@ -1,0 +1,6112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="eLight EV Parts - EV spare parts and component information platform for 2-wheelers, 3-wheelers and 4-wheelers.">
+
+    <meta name="keywords"
+          content="EV parts, electric vehicle parts, EV spare parts, electric scooter parts, electric car parts, EV components, eLight EV Parts">
+
+    <title>eLight EV Parts | Your EV Deserves Extra Care</title>
+
+
+    <style>
+
+        /* =====================================================
+           eLight EV PARTS
+           GREEN / OLIVE / ORANGE / CREAM
+        ===================================================== */
+
+        :root {
+
+            --dark-green: #385b24;
+            --green: #597b2d;
+            --light-green: #8ea33d;
+            --olive: #71852d;
+
+            --orange: #c8790b;
+            --light-orange: #e4a21b;
+
+            --cream: #f8f3dc;
+            --cream-light: #fffdf3;
+            --cream-dark: #eee7c9;
+
+            --text: #26351f;
+            --muted: #626857;
+
+            --white: #ffffff;
+
+            --soft-green: #edf0d8;
+            --soft-green-2: #e9edce;
+            --soft-orange: #fff4dc;
+
+            --border: #d5ddc4;
+
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: var(--cream-light);
+
+            border-bottom:
+                1px solid var(--cream-dark);
+
+            box-shadow:
+                0 3px 14px
+                rgba(56, 91, 36, 0.10);
+
+        }
+
+
+        .header-container {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding:
+                12px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            min-width: 230px;
+
+        }
+
+
+        .brand img {
+
+            width: 52px;
+            height: 52px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+        }
+
+
+        .brand-text h1 {
+
+            font-size: 22px;
+
+            color:
+                var(--dark-green);
+
+            line-height: 1.1;
+
+        }
+
+
+        .brand-text span {
+
+            font-size: 11px;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            flex-wrap: wrap;
+
+            justify-content:
+                flex-end;
+
+        }
+
+
+        nav button {
+
+            border: none;
+
+            background:
+                transparent;
+
+            color:
+                var(--text);
+
+            padding:
+                9px 13px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        nav button:hover,
+        nav button.active {
+
+            background:
+                var(--soft-green);
+
+            color:
+                var(--dark-green);
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #385b24 0%,
+                    #597b2d 50%,
+                    #71852d 78%,
+                    #c8790b 100%
+                );
+
+            color:
+                var(--white);
+
+            padding:
+                78px 20px 75px;
+
+        }
+
+
+        .hero-container {
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+        }
+
+
+        .hero-badge {
+
+            display:
+                inline-block;
+
+            background:
+                rgba(255,255,255,0.14);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.28);
+
+            padding:
+                7px 14px;
+
+            border-radius:
+                20px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .hero h2 {
+
+            font-size:
+                clamp(34px, 5vw, 60px);
+
+            line-height:
+                1.08;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .hero-tagline {
+
+            font-size:
+                clamp(18px, 2.5vw, 25px);
+
+            font-weight:
+                600;
+
+            color:
+                #fff3c9;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .hero p {
+
+            max-width:
+                780px;
+
+            margin:
+                0 auto 30px;
+
+            color:
+                #fffdf3;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .search-box {
+
+            max-width:
+                760px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            background:
+                var(--white);
+
+            padding:
+                7px;
+
+            border-radius:
+                14px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(38, 53, 31, 0.20);
+
+        }
+
+
+        .search-box input {
+
+            flex:
+                1;
+
+            border:
+                none;
+
+            outline:
+                none;
+
+            padding:
+                15px 17px;
+
+            font-size:
+                16px;
+
+            color:
+                var(--text);
+
+            min-width:
+                0;
+
+        }
+
+
+        .search-box button {
+
+            border:
+                none;
+
+            background:
+                var(--green);
+
+            color:
+                var(--white);
+
+            padding:
+                0 23px;
+
+            border-radius:
+                10px;
+
+            cursor:
+                pointer;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .search-box button:hover {
+
+            background:
+                var(--dark-green);
+
+        }
+
+
+        /* =====================================================
+           CARE MESSAGE
+        ===================================================== */
+
+        .care-section {
+
+            max-width:
+                1050px;
+
+            margin:
+                -30px auto 0;
+
+            padding:
+                0 20px;
+
+            position:
+                relative;
+
+            z-index:
+                5;
+
+        }
+
+
+        .care-card {
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(56,91,36,0.12);
+
+            padding:
+                28px 30px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .care-icon {
+
+            font-size:
+                31px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .care-card h2 {
+
+            color:
+                var(--dark-green);
+
+            font-size:
+                25px;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .care-card p {
+
+            max-width:
+                760px;
+
+            margin:
+                auto;
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats {
+
+            max-width:
+                1050px;
+
+            margin:
+                20px auto 0;
+
+            padding:
+                0 20px;
+
+            position:
+                relative;
+
+            z-index:
+                5;
+
+        }
+
+
+        .stats-grid {
+
+            background:
+                var(--cream-light);
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(56,91,36,0.12);
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .stat {
+
+            text-align:
+                center;
+
+            padding:
+                22px 10px;
+
+            border-right:
+                1px solid
+                var(--cream-dark);
+
+        }
+
+
+        .stat:last-child {
+
+            border-right:
+                none;
+
+        }
+
+
+        .stat strong {
+
+            display:
+                block;
+
+            font-size:
+                25px;
+
+            color:
+                var(--green);
+
+        }
+
+
+        .stat span {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
+            padding:
+                60px 22px;
+
+        }
+
+
+        section {
+
+            scroll-margin-top:
+                95px;
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                31px;
+
+            color:
+                var(--dark-green);
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+
+        }
+
+
+        /* =====================================================
+           VEHICLE SELECTOR
+        ===================================================== */
+
+        .vehicle-selector {
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .category-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                22px;
+
+        }
+
+
+        .category-card {
+
+            background:
+                var(--cream-light);
+
+            border-radius:
+                17px;
+
+            padding:
+                28px;
+
+            border:
+                1px solid
+                var(--border);
+
+            cursor:
+                pointer;
+
+            transition:
+                0.25s;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .category-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 13px 30px
+                rgba(56,91,36,0.13);
+
+            border-color:
+                var(--light-green);
+
+        }
+
+
+        .category-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            border-radius:
+                13px;
+
+            background:
+                var(--soft-green);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                27px;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .category-card h3 {
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                8px;
+
+            color:
+                var(--dark-green);
+
+        }
+
+
+        .category-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .category-count {
+
+            color:
+                var(--green);
+
+            font-weight:
+                bold;
+
+            font-size:
+                13px;
+
+        }
+
+
+        /* =====================================================
+           MODELS
+        ===================================================== */
+
+        .models-section {
+
+            margin-top:
+                70px;
+
+        }
+
+
+        .category-title {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin:
+                35px 0 18px;
+
+            gap:
+                15px;
+
+        }
+
+
+        .category-title h3 {
+
+            font-size:
+                24px;
+
+            color:
+                var(--dark-green);
+
+        }
+
+
+        .category-title span {
+
+            font-size:
+                13px;
+
+            color:
+                var(--dark-green);
+
+            background:
+                var(--soft-green);
+
+            padding:
+                7px 11px;
+
+            border-radius:
+                20px;
+
+        }
+
+
+        .model-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                17px;
+
+        }
+
+
+        .model-card {
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                14px;
+
+            padding:
+                20px;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .model-card:hover {
+
+            border-color:
+                var(--green);
+
+            box-shadow:
+                0 8px 22px
+                rgba(56,91,36,0.11);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .vehicle-type {
+
+            display:
+                inline-block;
+
+            background:
+                var(--cream-dark);
+
+            color:
+                var(--dark-green);
+
+            padding:
+                4px 8px;
+
+            border-radius:
+                5px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                bold;
+
+            margin-bottom:
+                11px;
+
+        }
+
+
+        .model-card h4 {
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                7px;
+
+            color:
+                var(--text);
+
+        }
+
+
+        .model-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .explore {
+
+            color:
+                var(--green);
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        /* =====================================================
+           MY EV
+        ===================================================== */
+
+        #componentsSection {
+
+            margin-top:
+                80px;
+
+        }
+
+
+        .my-ev-banner {
+
+            background:
+                var(--dark-green);
+
+            color:
+                var(--white);
+
+            padding:
+                27px;
+
+            border-radius:
+                16px;
+
+            margin-bottom:
+                24px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+        }
+
+
+        .my-ev-label {
+
+            color:
+                #f3d889;
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .my-ev-banner h3 {
+
+            font-size:
+                26px;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .my-ev-banner p {
+
+            color:
+                #e2e8bf;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .care-ev-text {
+
+            color:
+                #fff0bc;
+
+            font-size:
+                13px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .back-button {
+
+            border:
+                1px solid
+                rgba(255,255,255,0.4);
+
+            background:
+                transparent;
+
+            color:
+                var(--white);
+
+            padding:
+                9px 15px;
+
+            border-radius:
+                8px;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        /* =====================================================
+           COMPONENT ROWS
+        ===================================================== */
+
+        .component-list {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                11px;
+
+        }
+
+
+        .component-row {
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                16px 18px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                180px 1fr auto;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .component-row:hover {
+
+            border-color:
+                var(--light-green);
+
+            box-shadow:
+                0 7px 20px
+                rgba(56,91,36,0.09);
+
+        }
+
+
+        .component-tag {
+
+            display:
+                inline-block;
+
+            background:
+                var(--soft-green);
+
+            color:
+                var(--dark-green);
+
+            padding:
+                5px 9px;
+
+            border-radius:
+                5px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                bold;
+
+            width:
+                fit-content;
+
+        }
+
+
+        .component-main h4 {
+
+            font-size:
+                16px;
+
+            margin-bottom:
+                3px;
+
+            color:
+                var(--text);
+
+        }
+
+
+        .component-main p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+        }
+
+
+        .verify-small {
+
+            color:
+                var(--orange);
+
+            background:
+                var(--soft-orange);
+
+            padding:
+                5px 7px;
+
+            border-radius:
+                5px;
+
+            font-size:
+                9px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .details-btn {
+
+            border:
+                none;
+
+            background:
+                var(--green);
+
+            color:
+                var(--white);
+
+            padding:
+                9px 12px;
+
+            border-radius:
+                7px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                11px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .details-btn:hover {
+
+            background:
+                var(--dark-green);
+
+        }
+
+
+        /* =====================================================
+           ALL COMPONENTS
+        ===================================================== */
+
+        .all-components {
+
+            margin-top:
+                80px;
+
+        }
+
+
+        .filter-bar {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .filter-btn {
+
+            border:
+                1px solid
+                var(--border);
+
+            background:
+                var(--cream-light);
+
+            color:
+                var(--muted);
+
+            padding:
+                9px 14px;
+
+            border-radius:
+                8px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+        }
+
+
+        .filter-btn.active,
+        .filter-btn:hover {
+
+            background:
+                var(--green);
+
+            border-color:
+                var(--green);
+
+            color:
+                var(--white);
+
+        }
+
+
+        .all-components-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .mini-component {
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                17px;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .mini-component:hover {
+
+            border-color:
+                var(--green);
+
+        }
+
+
+        .mini-component small {
+
+            color:
+                var(--green);
+
+            font-weight:
+                bold;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .mini-component h4 {
+
+            font-size:
+                14px;
+
+            margin:
+                7px 0;
+
+            color:
+                var(--text);
+
+        }
+
+
+        .mini-component span {
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+        }
+
+
+        /* =====================================================
+           VERIFICATION
+        ===================================================== */
+
+        .verification-box {
+
+            margin-top:
+                70px;
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                #f1dcae;
+
+            border-left:
+                5px solid
+                var(--orange);
+
+            border-radius:
+                12px;
+
+            padding:
+                22px;
+
+        }
+
+
+        .verification-box h3 {
+
+            color:
+                #795000;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .verification-box p {
+
+            color:
+                #66583f;
+
+            font-size:
+                13px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .verification-box ul {
+
+            margin-left:
+                20px;
+
+            color:
+                #66583f;
+
+            font-size:
+                13px;
+
+            columns:
+                2;
+
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about-section {
+
+            margin-top:
+                75px;
+
+        }
+
+
+        .about-card {
+
+            background:
+                var(--cream-light);
+
+            border-radius:
+                17px;
+
+            border:
+                1px solid
+                var(--border);
+
+            padding:
+                30px;
+
+        }
+
+
+        .about-card h3 {
+
+            color:
+                var(--dark-green);
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .about-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-overlay {
+
+            display:
+                none;
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(38,53,31,0.72);
+
+            z-index:
+                3000;
+
+            padding:
+                20px;
+
+            overflow-y:
+                auto;
+
+        }
+
+
+        .modal-overlay.show {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+        }
+
+
+        .modal {
+
+            width:
+                min(850px,100%);
+
+            background:
+                var(--cream-light);
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 25px 70px
+                rgba(38,53,31,0.25);
+
+        }
+
+
+        .modal-header {
+
+            background:
+                var(--dark-green);
+
+            color:
+                var(--white);
+
+            padding:
+                24px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+        }
+
+
+        .modal-header h3 {
+
+            font-size:
+                23px;
+
+            line-height:
+                1.25;
+
+        }
+
+
+        .close-btn {
+
+            border:
+                none;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            color:
+                var(--white);
+
+            width:
+                35px;
+
+            height:
+                35px;
+
+            border-radius:
+                8px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                20px;
+
+        }
+
+
+        .modal-body {
+
+            padding:
+                25px;
+
+        }
+
+
+        .status-box {
+
+            background:
+                var(--soft-orange);
+
+            color:
+                #795000;
+
+            border:
+                1px solid
+                #efd79f;
+
+            padding:
+                13px;
+
+            border-radius:
+                9px;
+
+            margin-bottom:
+                20px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .detail-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .detail-item {
+
+            padding:
+                14px;
+
+            border-right:
+                1px solid
+                var(--cream-dark);
+
+            border-bottom:
+                1px solid
+                var(--cream-dark);
+
+        }
+
+
+        .detail-item:nth-child(even) {
+
+            border-right:
+                none;
+
+        }
+
+
+        .detail-item strong {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.5px;
+
+            margin-bottom:
+                4px;
+
+        }
+
+
+        .detail-item span {
+
+            color:
+                var(--text);
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+        }
+
+
+        .modal-description {
+
+            margin-top:
+                20px;
+
+            background:
+                var(--cream);
+
+            padding:
+                17px;
+
+            border-radius:
+                10px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+        }
+
+
+        .source-link {
+
+            display:
+                inline-block;
+
+            margin-top:
+                10px;
+
+            color:
+                var(--green);
+
+            font-weight:
+                bold;
+
+            font-size:
+                12px;
+
+        }
+
+
+        .modal-warning {
+
+            margin-top:
+                15px;
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                #f0d79f;
+
+            padding:
+                16px;
+
+            border-radius:
+                10px;
+
+            color:
+                #69583a;
+
+            font-size:
+                12px;
+
+        }
+
+
+        /* =====================================================
+           PDF BUTTON
+        ===================================================== */
+
+        .pdf-proof-btn {
+
+            margin-top:
+                18px;
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            background:
+                var(--orange);
+
+            color:
+                var(--white);
+
+            padding:
+                13px 18px;
+
+            border-radius:
+                9px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                13px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .pdf-proof-btn:hover {
+
+            background:
+                #9e6208;
+
+        }
+
+
+        /* =====================================================
+           NO RESULTS
+        ===================================================== */
+
+        .no-results {
+
+            text-align:
+                center;
+
+            background:
+                var(--cream-light);
+
+            border:
+                1px solid
+                var(--border);
+
+            padding:
+                35px;
+
+            border-radius:
+                14px;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background:
+                var(--dark-green);
+
+            color:
+                var(--white);
+
+            margin-top:
+                80px;
+
+        }
+
+
+        .footer-container {
+
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
+            padding:
+                35px 22px 20px;
+
+        }
+
+
+        .footer-brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+
+        }
+
+
+        .footer-brand img {
+
+            width:
+                60px;
+
+            height:
+                60px;
+
+            object-fit:
+                contain;
+
+        }
+
+
+        .footer-brand h3 {
+
+            color:
+                #f3d889;
+
+        }
+
+
+        .footer-brand p {
+
+            color:
+                #d5ddc4;
+
+            font-size:
+                12px;
+
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            margin-top:
+                25px;
+
+            padding-top:
+                17px;
+
+            color:
+                #d5ddc4;
+
+            font-size:
+                11px;
+
+            text-align:
+                center;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width:1050px) {
+
+            .model-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+
+            .all-components-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+        }
+
+
+        @media (max-width:850px) {
+
+            .header-container {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            nav {
+
+                justify-content:
+                    center;
+
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .stat:nth-child(2) {
+
+                border-right:
+                    none;
+
+            }
+
+
+            .category-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .model-grid,
+            .all-components-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .component-row {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    9px;
+
+            }
+
+
+            .my-ev-banner {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .verification-box ul {
+
+                columns:
+                    1;
+
+            }
+
+        }
+
+
+        @media (max-width:580px) {
+
+            .hero {
+
+                padding:
+                    48px 15px;
+
+            }
+
+
+            .search-box {
+
+                flex-direction:
+                    column;
+
+                background:
+                    transparent;
+
+                box-shadow:
+                    none;
+
+                gap:
+                    8px;
+
+            }
+
+
+            .search-box input {
+
+                border-radius:
+                    9px;
+
+                padding:
+                    14px;
+
+            }
+
+
+            .search-box button {
+
+                padding:
+                    13px;
+
+            }
+
+
+            main {
+
+                padding:
+                    45px 15px;
+
+            }
+
+
+            .model-grid,
+            .all-components-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .detail-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .detail-item {
+
+                border-right:
+                    none;
+
+            }
+
+
+            .stats {
+
+                padding:
+                    0 10px;
+
+            }
+
+
+            nav button {
+
+                padding:
+                    7px 9px;
+
+                font-size:
+                    12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================================
+     HEADER
+========================================================== -->
+
+<header>
+
+    <div class="header-container">
+
+        <a href="#home"
+           class="brand"
+           onclick="goHome()">
+
+            <img src="ev5.png"
+                 alt="eLight EV Parts Logo">
+
+            <div class="brand-text">
+
+                <h1>
+                    eLight EV Parts
+                </h1>
+
+                <span>
+                    Your EV Deserves Extra Care
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <button class="active"
+                    onclick="goHome()">
+
+                Home
+
+            </button>
+
+
+            <button onclick="showCategory('2W')">
+
+                2-Wheeler
+
+            </button>
+
+
+            <button onclick="showCategory('3W')">
+
+                3-Wheeler
+
+            </button>
+
+
+            <button onclick="showCategory('4W')">
+
+                4-Wheeler
+
+            </button>
+
+
+            <button onclick="showAllComponents()">
+
+                Components
+
+            </button>
+
+
+            <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+
+                About
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ==========================================================
+     HERO / HOME
+========================================================== -->
+
+<section class="hero"
+         id="home">
+
+    <div class="hero-container">
+
+        <div class="hero-badge">
+
+            ❤️ eLight EV Parts
+
+        </div>
+
+
+        <h2>
+
+            Your EV Deserves Extra Care.
+
+        </h2>
+
+
+        <div class="hero-tagline">
+
+            Find the right spare parts for your EV —
+            with care, clarity and confidence.
+
+        </div>
+
+
+        <p>
+
+            Explore EV models, components and technical information
+            for 2-wheelers, 3-wheelers and 4-wheelers.
+
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search your EV model or component..."
+                oninput="performSearch()">
+
+
+            <button onclick="performSearch()">
+
+                🔍 Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     CARE MESSAGE
+========================================================== -->
+
+<section class="care-section">
+
+    <div class="care-card">
+
+        <div class="care-icon">
+
+            ❤️
+
+        </div>
+
+
+        <h2>
+
+            Care for Your EV Like Your Own
+
+        </h2>
+
+
+        <p>
+
+            Your EV is more than a vehicle.
+            It is something you depend on every day.
+            We help you identify the right parts and make
+            better maintenance decisions.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     STATS
+========================================================== -->
+
+<div class="stats">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <strong id="modelCount">
+                0+
+            </strong>
+
+            <span>
+                EV Model Entries
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong id="componentCount">
+                0+
+            </strong>
+
+            <span>
+                Component Associations
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                3
+            </strong>
+
+            <span>
+                Vehicle Categories
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                Stage 1
+            </strong>
+
+            <span>
+                Information Platform
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================================
+     MAIN
+========================================================== -->
+
+<main>
+
+
+    <!-- ======================================================
+         SELECT VEHICLE
+    ====================================================== -->
+
+    <section id="categories"
+             class="vehicle-selector">
+
+        <div class="section-heading">
+
+            <h2>
+
+                🚗 Select Your EV
+
+            </h2>
+
+
+            <p>
+
+                Choose your vehicle category to find your EV
+                and explore its associated components.
+
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <div class="category-card"
+                 onclick="showCategory('2W')">
+
+                <div class="category-icon">
+
+                    🛵
+
+                </div>
+
+
+                <h3>
+
+                    2-Wheeler
+
+                </h3>
+
+
+                <p>
+
+                    Electric scooters and motorcycles,
+                    including batteries, motors, controllers,
+                    charging and other components.
+
+                </p>
+
+
+                <div class="category-count"
+                     id="count2W">
+
+                    0 models
+
+                </div>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="showCategory('3W')">
+
+                <div class="category-icon">
+
+                    🛺
+
+                </div>
+
+
+                <h3>
+
+                    3-Wheeler
+
+                </h3>
+
+
+                <p>
+
+                    Electric passenger and commercial
+                    three-wheelers and their associated components.
+
+                </p>
+
+
+                <div class="category-count"
+                     id="count3W">
+
+                    0 models
+
+                </div>
+
+            </div>
+
+
+            <div class="category-card"
+                 onclick="showCategory('4W')">
+
+                <div class="category-icon">
+
+                    🚗
+
+                </div>
+
+
+                <h3>
+
+                    4-Wheeler
+
+                </h3>
+
+
+                <p>
+
+                    Electric cars and utility vehicles with
+                    battery, motor, charging and other components.
+
+                </p>
+
+
+                <div class="category-count"
+                     id="count4W">
+
+                    0 models
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         EV MODELS
+    ====================================================== -->
+
+    <section class="models-section"
+             id="modelsSection">
+
+        <div class="section-heading">
+
+            <h2>
+
+                Select Your EV Model
+
+            </h2>
+
+
+            <p>
+
+                Choose your exact EV model to enter
+                your personal "My EV" information view.
+
+            </p>
+
+        </div>
+
+
+        <div id="modelsContainer"></div>
+
+    </section>
+
+
+    <!-- ======================================================
+         MY EV / COMPONENTS
+    ====================================================== -->
+
+    <section id="componentsSection">
+
+        <div class="section-heading">
+
+            <h2>
+
+                ❤️ My EV
+
+            </h2>
+
+
+            <p>
+
+                Take Extra Care of My EV — explore the
+                components associated with your selected model.
+
+            </p>
+
+        </div>
+
+
+        <div id="selectedVehicleContainer">
+
+            <div class="no-results">
+
+                Select your EV model above to view
+                "My EV" and its components.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         ALL COMPONENTS
+    ====================================================== -->
+
+    <section class="all-components"
+             id="allComponentsSection">
+
+        <div class="section-heading">
+
+            <h2>
+
+                🔧 Component Catalogue
+
+            </h2>
+
+
+            <p>
+
+                Browse EV component information across
+                the available models.
+
+            </p>
+
+        </div>
+
+
+        <div class="filter-bar">
+
+            <button class="filter-btn active"
+                    onclick="filterAllComponents('ALL', this)">
+
+                All
+
+            </button>
+
+
+            <button class="filter-btn"
+                    onclick="filterAllComponents('2W', this)">
+
+                2-Wheeler
+
+            </button>
+
+
+            <button class="filter-btn"
+                    onclick="filterAllComponents('3W', this)">
+
+                3-Wheeler
+
+            </button>
+
+
+            <button class="filter-btn"
+                    onclick="filterAllComponents('4W', this)">
+
+                4-Wheeler
+
+            </button>
+
+        </div>
+
+
+        <div class="all-components-grid"
+             id="allComponentsGrid">
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         DISCLAIMER / VERIFICATION
+    ====================================================== -->
+
+    <section class="verification-box">
+
+        <h3>
+
+            ⚠️ Important: Verify Before Purchase or Installation
+
+        </h3>
+
+
+        <p>
+
+            This platform provides component and spare-parts
+            information for reference purposes. Compatibility
+            is not guaranteed.
+
+        </p>
+
+
+        <p>
+
+            Users should verify the vehicle model, year, variant,
+            battery voltage, current, connector, dimensions and
+            OEM information before purchasing or installing any part.
+
+        </p>
+
+
+        <ul>
+
+            <li>
+                Vehicle model
+            </li>
+
+            <li>
+                Model year
+            </li>
+
+            <li>
+                Variant
+            </li>
+
+            <li>
+                Battery configuration
+            </li>
+
+            <li>
+                Voltage rating
+            </li>
+
+            <li>
+                Current rating
+            </li>
+
+            <li>
+                Connector
+            </li>
+
+            <li>
+                Dimensions
+            </li>
+
+            <li>
+                OEM part number
+            </li>
+
+            <li>
+                VIN / chassis compatibility
+            </li>
+
+        </ul>
+
+
+        <p style="margin-top:15px;">
+
+            Exact OEM part numbers, connectors, dimensions,
+            compatibility and seller prices are intentionally
+            marked as <strong>Pending Verification</strong>
+            when reliable information is not available.
+
+        </p>
+
+    </section>
+
+
+    <!-- ======================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="about-section"
+             id="about">
+
+        <div class="section-heading">
+
+            <h2>
+
+                About eLight EV Parts
+
+            </h2>
+
+
+            <p>
+
+                Stage 1 — EV information platform
+
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <h3>
+
+                What is eLight EV Parts?
+
+            </h3>
+
+
+            <p>
+
+                eLight EV Parts is being developed as an
+                information and catalogue platform for
+                electric vehicle models, spare parts and components.
+
+            </p>
+
+
+            <p>
+
+                Stage 1 focuses on organizing EV model and
+                component information in a searchable platform
+                covering two-wheelers, three-wheelers and four-wheelers.
+
+            </p>
+
+
+            <p>
+
+                Future stages can introduce seller registration,
+                customer enquiries, verified listings and
+                commercial services.
+
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ==========================================================
+     FOOTER
+========================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <img src="ev5.png"
+                 alt="eLight EV Parts Logo">
+
+
+            <div>
+
+                <h3>
+
+                    eLight EV Parts
+
+                </h3>
+
+
+                <p>
+
+                    Your EV Deserves Extra Care.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 eLight EV Parts.
+            Information requires verification before
+            purchase, installation or compatibility claims.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================================
+     COMPONENT DETAILS MODAL
+========================================================== -->
+
+<div class="modal-overlay"
+     id="componentModal"
+     onclick="closeModalOutside(event)">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <h3 id="modalTitle">
+
+                Part Information
+
+            </h3>
+
+
+            <button class="close-btn"
+                    onclick="closeModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <div class="status-box"
+                 id="modalStatus">
+
+            </div>
+
+
+            <div class="detail-grid">
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        EV Model
+                    </strong>
+
+                    <span id="detailModel">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Vehicle Category
+                    </strong>
+
+                    <span id="detailCategory">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Model Year
+                    </strong>
+
+                    <span id="detailYear">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Variant
+                    </strong>
+
+                    <span id="detailVariant">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Component
+                    </strong>
+
+                    <span id="detailComponent">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Battery Configuration
+                    </strong>
+
+                    <span id="detailBattery">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Voltage Rating
+                    </strong>
+
+                    <span id="detailVoltage">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Current / Capacity
+                    </strong>
+
+                    <span id="detailCurrent">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Connector
+                    </strong>
+
+                    <span id="detailConnector">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Dimensions
+                    </strong>
+
+                    <span id="detailDimensions">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        OEM Part Number
+                    </strong>
+
+                    <span id="detailOEM">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Compatibility / VIN / Chassis
+                    </strong>
+
+                    <span id="detailVIN">
+                    </span>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>
+                        Seller Price
+                    </strong>
+
+                    <span id="detailPrice">
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-description"
+                 id="modalDescription">
+
+            </div>
+
+
+            <div class="modal-warning">
+
+                <strong>
+                    Compatibility check:
+                </strong>
+
+                Always verify the exact vehicle model,
+                year, variant, battery configuration,
+                electrical ratings, connector, dimensions,
+                OEM part number and VIN/chassis information
+                before purchasing or installing a component.
+
+            </div>
+
+
+            <button class="pdf-proof-btn"
+                    onclick="downloadComponentPDF()">
+
+                📄 Download PDF Verification / Proof Sheet
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================================
+     PART 2 JAVASCRIPT STARTS BELOW
+========================================================== -->
+
+<script>
+
+/* ==========================================================
+   eLight EV PARTS
+   STAGE 1 - JAVASCRIPT DATABASE & APPLICATION LOGIC
+========================================================== */
+
+
+/* ==========================================================
+   VEHICLE DATABASE
+========================================================== */
+
+const vehicles = [
+
+    /* ======================================================
+       2-WHEELERS
+    ====================================================== */
+
+    {
+        id: "2w-tvs-iqube",
+        category: "2W",
+        manufacturer: "TVS",
+        model: "TVS iQube",
+        year: "2026",
+        variant: "3.1 kWh variant",
+
+        battery:
+            "Lithium-ion battery, 3.1 kWh",
+
+        batteryVoltage:
+            "52 V rated",
+
+        motor:
+            "BLDC hub-mounted type",
+
+        motorPower:
+            "3 kW rated / 4.4 kW peak",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "1805 × 645 × 1140 mm",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer specification verified",
+
+        source:
+            "TVS Motor official iQube 3.1 kWh specifications",
+
+        sourceUrl:
+            "https://www.tvsmotor.com/electric-scooters/tvs-iqube/tvs-iqube-3-1-kwh-variant-details"
+    },
+
+
+    {
+        id: "2w-bajaj-chetak",
+        category: "2W",
+        manufacturer: "Bajaj",
+        model: "Bajaj Chetak",
+        year: "2026",
+        variant: "Chetak C25",
+
+        battery:
+            "2.5 kWh battery",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Electric traction motor",
+
+        motorPower:
+            "Pending Verification",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer model and battery capacity verified",
+
+        source:
+            "Bajaj Auto official Chetak C25 information",
+
+        sourceUrl:
+            "https://www.bajajauto.com/corporate/media-centre/press-releases/ride-easy-vibe-easy-the-all-new-chetak-c25-ss-here"
+    },
+
+
+    {
+        id: "2w-ather-450x",
+        category: "2W",
+        manufacturer: "Ather",
+        model: "Ather 450X",
+        year: "2026",
+        variant: "2.9 kWh / 3.7 kWh",
+
+        battery:
+            "Lithium-ion battery; 2.9 kWh / 3.7 kWh",
+
+        batteryVoltage:
+            "51.1 V nominal",
+
+        motor:
+            "PMSM",
+
+        motorPower:
+            "6.4 kW peak",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Exact connector specification Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer specification verified",
+
+        source:
+            "Ather official 450 Series specification",
+
+        sourceUrl:
+            "https://media.atherenergy.com/Ather-450-specsheet.pdf"
+    },
+
+
+    {
+        id: "2w-ola-s1-pro",
+        category: "2W",
+        manufacturer: "Ola Electric",
+        model: "Ola S1 Pro",
+        year: "2026",
+        variant: "S1 Pro 3 kWh / 4 kWh",
+
+        battery:
+            "3 kWh / 4 kWh battery configuration depending on variant",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Electric traction motor",
+
+        motorPower:
+            "11 kW peak (3 kWh) / 13 kW peak (4 kWh)",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer model/variant information verified",
+
+        source:
+            "Ola Electric official S1 Pro product information",
+
+        sourceUrl:
+            "https://www.olaelectric.com/s1pro-gen3"
+    },
+
+
+    /* ======================================================
+       3-WHEELERS
+    ====================================================== */
+
+    {
+        id: "3w-mahindra-treo",
+        category: "3W",
+        manufacturer: "Mahindra",
+        model: "Mahindra Treo",
+        year: "2026",
+        variant: "Electric passenger 3-wheeler",
+
+        battery:
+            "Variant-specific manufacturer specification required",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Electric traction motor",
+
+        motorPower:
+            "Pending Verification for exact variant",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "Variant-specific dimensions Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Exact variant-level technical data requires OEM verification",
+
+        source:
+            "Mahindra official electric 3-wheeler information",
+
+        sourceUrl:
+            "https://www.mahindra.com/news-room/press-release/en/mahindra-launches-new-treo-zor-electric-3-wheeler-cargo"
+    },
+
+
+    {
+        id: "3w-piaggio-apecity",
+        category: "3W",
+        manufacturer: "Piaggio",
+        model: "Piaggio Ape E-City",
+        year: "2026",
+        variant: "Electric 3-wheeler",
+
+        battery:
+            "Pending Verification",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Electric traction motor",
+
+        motorPower:
+            "Pending Verification",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Exact technical information requires OEM verification",
+
+        source:
+            "OEM/service documentation required",
+
+        sourceUrl:
+            "Pending Verification"
+    },
+
+
+    {
+        id: "3w-bajaj-re-etec",
+        category: "3W",
+        manufacturer: "Bajaj",
+        model: "Bajaj RE E-TEC 9.0",
+        year: "2026",
+        variant: "RE e-TEC 9.0",
+
+        battery:
+            "8.9 kWh battery",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Advanced PMS motor",
+
+        motorPower:
+            "Pending Verification",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Exact external connector Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer brochure information verified",
+
+        source:
+            "Bajaj Auto official RE e-TEC 9.0 brochure",
+
+        sourceUrl:
+            "https://www.bajajauto.com/-/media/assets/bajajauto/three-wheelers/new-maxima-ev-images/leaflets/re-leaflet.pdf"
+    },
+
+
+    {
+        id: "3w-euler-hiload",
+        category: "3W",
+        manufacturer: "Euler Motors",
+        model: "Euler HiLoad",
+        year: "2026",
+        variant: "Electric cargo 3-wheeler",
+
+        battery:
+            "Pending Verification",
+
+        batteryVoltage:
+            "Pending Verification",
+
+        motor:
+            "Electric traction motor",
+
+        motorPower:
+            "Pending Verification",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "Pending Verification",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Exact current variant specification requires OEM verification",
+
+        source:
+            "OEM/service documentation required",
+
+        sourceUrl:
+            "Pending Verification"
+    },
+
+
+    /* ======================================================
+       4-WHEELERS
+    ====================================================== */
+
+    {
+        id: "4w-tata-nexon-ev",
+        category: "4W",
+        manufacturer: "Tata Motors",
+        model: "Tata Nexon EV",
+        year: "2026",
+        variant: "45 kWh specification",
+
+        battery:
+            "45 kWh high-energy-density lithium-ion battery pack",
+
+        batteryVoltage:
+            "High-voltage system; exact nominal voltage Pending Verification",
+
+        motor:
+            "Permanent Magnet Synchronous Motor",
+
+        motorPower:
+            "106 kW",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Pending Verification",
+
+        dimensions:
+            "3995 × 1802 × 1625 mm",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer specification verified",
+
+        source:
+            "Tata.ev official Nexon.ev specifications",
+
+        sourceUrl:
+            "https://prod-ev.tatamotors.com/nexon/ev/specifications.html"
+    },
+
+
+    {
+        id: "4w-mg-windsor-ev",
+        category: "4W",
+        manufacturer: "JSW MG Motor India",
+        model: "MG Windsor EV",
+        year: "2026",
+        variant: "38 kWh / 52.9 kWh",
+
+        battery:
+            "38 kWh / 52.9 kWh battery options",
+
+        batteryVoltage:
+            "High-voltage system; exact nominal voltage Pending Verification",
+
+        motor:
+            "Permanent Magnet Synchronous Motor",
+
+        motorPower:
+            "100 kW / 136 PS",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "CCS2",
+
+        dimensions:
+            "4295 × 1850 × 1677 mm",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer specification verified",
+
+        source:
+            "MG Motor India official Windsor EV brochure",
+
+        sourceUrl:
+            "https://www.mgmotor.co.in/content/mgmotor/language-masters/en/vehicles/windsor-ev-electric-car-in-india.html"
+    },
+
+
+    {
+        id: "4w-mg-zs-ev",
+        category: "4W",
+        manufacturer: "JSW MG Motor India",
+        model: "MG ZS EV",
+        year: "2026",
+        variant: "India specification",
+
+        battery:
+            "50.3 kWh high-voltage battery",
+
+        batteryVoltage:
+            "High-voltage system; exact nominal voltage Pending Verification",
+
+        motor:
+            "Permanent Magnet Synchronous Motor",
+
+        motorPower:
+            "176.75 PS",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "Type 2 AC + CCS DC",
+
+        dimensions:
+            "4323 × 1809 × 1649 mm",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer specification verified",
+
+        source:
+            "MG Motor India official ZS EV specifications",
+
+        sourceUrl:
+            "https://www.mgmotor.co.in/vehicles/mgzsev-electric-car-in-india"
+    },
+
+
+    {
+        id: "4w-tata-punch-ev",
+        category: "4W",
+        manufacturer: "Tata Motors",
+        model: "Tata Punch EV",
+        year: "2026",
+        variant: "Current battery configurations require variant verification",
+
+        battery:
+            "Current specification varies by variant; verify exact battery configuration",
+
+        batteryVoltage:
+            "High-voltage system; exact nominal voltage Pending Verification",
+
+        motor:
+            "Permanent Magnet Synchronous Motor",
+
+        motorPower:
+            "Variant-specific; verify exact model",
+
+        currentRating:
+            "Pending Verification",
+
+        chargingConnector:
+            "CCS2 — verify exact model year and variant",
+
+        dimensions:
+            "3857 × 1742 × 1633 mm; verify exact current variant",
+
+        oemPartNumber:
+            "Pending Verification",
+
+        vin:
+            "Verify exact VIN / chassis applicability",
+
+        sellerPrice:
+            "Pending Verification",
+
+        sourceStatus:
+            "Manufacturer documentation available; exact variant applicability must be checked",
+
+        source:
+            "Tata Motors official Punch.ev documentation",
+
+        sourceUrl:
+            "https://prod-ev.tatamotors.com/punch/ev/specifications.html"
+    }
+
+];
+
+
+/* ==========================================================
+   COMPONENT TEMPLATE DATABASE
+========================================================== */
+
+const componentTemplates = [
+
+    {
+        category: "Traction Battery",
+        suffix: "Traction Battery",
+        description:
+            "Battery assembly associated with the selected EV."
+    },
+
+    {
+        category: "Battery Management",
+        suffix: "Battery Management System",
+        description:
+            "Battery monitoring and management system."
+    },
+
+    {
+        category: "Traction Motor",
+        suffix: "Traction Motor",
+        description:
+            "Electric traction motor assembly."
+    },
+
+    {
+        category: "Motor Controller",
+        suffix: "Motor Controller / Inverter",
+        description:
+            "Propulsion motor control and power conversion system."
+    },
+
+    {
+        category: "On-Board Charger",
+        suffix: "On-Board Charger",
+        description:
+            "AC charging power conversion system."
+    },
+
+    {
+        category: "DC-DC Converter",
+        suffix: "DC-DC Converter",
+        description:
+            "Low-voltage auxiliary power conversion system."
+    },
+
+    {
+        category: "Charging Port",
+        suffix: "Charging Port",
+        description:
+            "Vehicle charging inlet and related hardware."
+    },
+
+    {
+        category: "Brake System",
+        suffix: "Brake Components",
+        description:
+            "Vehicle braking system components."
+    },
+
+    {
+        category: "Suspension",
+        suffix: "Suspension Components",
+        description:
+            "Front/rear suspension components."
+    },
+
+    {
+        category: "Thermal Management",
+        suffix: "Thermal Management",
+        description:
+            "Battery, motor, inverter or vehicle thermal-management components."
+    },
+
+    {
+        category: "Electrical Harness",
+        suffix: "Electrical / HV Harness",
+        description:
+            "Electrical and high-voltage wiring harness components."
+    },
+
+    {
+        category: "Fuse & Protection",
+        suffix: "Fuse / Contactor / Protection",
+        description:
+            "Electrical protection, switching and safety components."
+    },
+
+    {
+        category: "Tyre",
+        suffix: "Tyre / Wheel Specification",
+        description:
+            "Tyre and wheel specification associated with the selected EV."
+    },
+
+    {
+        category: "Display",
+        suffix: "Instrument Display",
+        description:
+            "Instrument cluster or vehicle display component."
+    }
+
+];
+
+
+/* ==========================================================
+   GENERATE COMPONENT RECORDS
+========================================================== */
+
+const components = [];
+
+
+vehicles.forEach(vehicle => {
+
+    componentTemplates.forEach((template, index) => {
+
+        let voltage =
+            "Pending Verification";
+
+        let current =
+            "Pending Verification";
+
+        let connector =
+            "Pending Verification";
+
+
+        if(
+            template.category ===
+            "Traction Battery"
+        ) {
+
+            voltage =
+                vehicle.batteryVoltage;
+
+        }
+
+
+        if(
+            template.category ===
+            "Charging Port"
+        ) {
+
+            connector =
+                vehicle.chargingConnector;
+
+        }
+
+
+        components.push({
+
+            id:
+                vehicle.id +
+                "-component-" +
+                index,
+
+            vehicleId:
+                vehicle.id,
+
+            category:
+                vehicle.category,
+
+            manufacturer:
+                vehicle.manufacturer,
+
+            componentCategory:
+                template.category,
+
+            name:
+                vehicle.model +
+                " " +
+                template.suffix,
+
+            model:
+                vehicle.model,
+
+            year:
+                vehicle.year,
+
+            variant:
+                vehicle.variant,
+
+            battery:
+                vehicle.battery,
+
+            voltage:
+                voltage,
+
+            current:
+                current,
+
+            connector:
+                connector,
+
+            dimensions:
+                vehicle.dimensions,
+
+            oemPartNo:
+                vehicle.oemPartNumber,
+
+            vin:
+                vehicle.vin,
+
+            sellerPrice:
+                vehicle.sellerPrice,
+
+            status:
+                vehicle.sourceStatus,
+
+            source:
+                vehicle.source,
+
+            sourceUrl:
+                vehicle.sourceUrl,
+
+            description:
+                template.description
+
+        });
+
+    });
+
+});
+
+
+/* ==========================================================
+   CURRENT COMPONENT FOR PDF
+========================================================== */
+
+let currentPDFComponent = null;
+
+
+/* ==========================================================
+   INITIALIZATION
+========================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        updateStatistics();
+
+        renderModels();
+
+        renderAllComponents(
+            "ALL"
+        );
+
+    }
+);
+
+
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+function updateStatistics() {
+
+    const count2W =
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "2W"
+        ).length;
+
+
+    const count3W =
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "3W"
+        ).length;
+
+
+    const count4W =
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "4W"
+        ).length;
+
+
+    document.getElementById(
+        "modelCount"
+    ).textContent =
+        vehicles.length + "+";
+
+
+    document.getElementById(
+        "componentCount"
+    ).textContent =
+        components.length + "+";
+
+
+    document.getElementById(
+        "count2W"
+    ).textContent =
+        count2W +
+        " model entries";
+
+
+    document.getElementById(
+        "count3W"
+    ).textContent =
+        count3W +
+        " model entries";
+
+
+    document.getElementById(
+        "count4W"
+    ).textContent =
+        count4W +
+        " model entries";
+
+}
+
+
+/* ==========================================================
+   HOME
+========================================================== */
+
+function goHome() {
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    renderModels();
+
+
+    document.getElementById(
+        "home"
+    ).scrollIntoView({
+        behavior:
+            "smooth"
+    });
+
+
+    setActiveNav(
+        "Home"
+    );
+
+}
+
+
+/* ==========================================================
+   ACTIVE NAVIGATION
+========================================================== */
+
+function setActiveNav(
+    name
+) {
+
+    document.querySelectorAll(
+        "nav button"
+    ).forEach(
+        button => {
+
+            button.classList.remove(
+                "active"
+            );
+
+
+            if(
+                button.textContent
+                    .trim() === name
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   SHOW CATEGORY
+========================================================== */
+
+function showCategory(
+    category
+) {
+
+    const filtered =
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                category
+        );
+
+
+    renderModelGroup(
+        category,
+        filtered,
+        true
+    );
+
+
+    document.getElementById(
+        "modelsSection"
+    ).scrollIntoView({
+        behavior:
+            "smooth"
+    });
+
+
+    setActiveNav(
+
+        category === "2W"
+            ? "2-Wheeler"
+            : category === "3W"
+                ? "3-Wheeler"
+                : "4-Wheeler"
+
+    );
+
+}
+
+
+/* ==========================================================
+   RENDER MODELS
+========================================================== */
+
+function renderModels() {
+
+    const container =
+        document.getElementById(
+            "modelsContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    renderModelGroup(
+        "2W",
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "2W"
+        ),
+        false
+    );
+
+
+    renderModelGroup(
+        "3W",
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "3W"
+        ),
+        false
+    );
+
+
+    renderModelGroup(
+        "4W",
+        vehicles.filter(
+            vehicle =>
+                vehicle.category ===
+                "4W"
+        ),
+        false
+    );
+
+}
+
+
+/* ==========================================================
+   RENDER MODEL GROUP
+========================================================== */
+
+function renderModelGroup(
+    category,
+    list,
+    clear = true
+) {
+
+    const container =
+        document.getElementById(
+            "modelsContainer"
+        );
+
+
+    if(clear) {
+
+        container.innerHTML = "";
+
+    }
+
+
+    let title =
+        "";
+
+
+    if(
+        category === "2W"
+    ) {
+
+        title =
+            "2-Wheeler EV Models";
+
+    }
+
+
+    if(
+        category === "3W"
+    ) {
+
+        title =
+            "3-Wheeler EV Models";
+
+    }
+
+
+    if(
+        category === "4W"
+    ) {
+
+        title =
+            "4-Wheeler EV Models";
+
+    }
+
+
+    const section =
+        document.createElement(
+            "div"
+        );
+
+
+    const heading =
+        document.createElement(
+            "div"
+        );
+
+
+    heading.className =
+        "category-title";
+
+
+    heading.innerHTML = `
+
+        <h3>
+            ${title}
+        </h3>
+
+        <span>
+            ${list.length}
+            model entries
+        </span>
+
+    `;
+
+
+    section.appendChild(
+        heading
+    );
+
+
+    const grid =
+        document.createElement(
+            "div"
+        );
+
+
+    grid.className =
+        "model-grid";
+
+
+    list.forEach(
+        vehicle => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "model-card";
+
+
+            card.onclick =
+                function() {
+
+                    selectVehicle(
+                        vehicle.id
+                    );
+
+                };
+
+
+            const count =
+                components.filter(
+                    component =>
+                        component.vehicleId ===
+                        vehicle.id
+                ).length;
+
+
+            card.innerHTML = `
+
+                <span class="vehicle-type">
+
+                    ${
+                        vehicle.category === "2W"
+                            ? "2-WHEELER"
+                            : vehicle.category === "3W"
+                                ? "3-WHEELER"
+                                : "4-WHEELER"
+                    }
+
+                </span>
+
+                <h4>
+                    ${vehicle.model}
+                </h4>
+
+                <p>
+
+                    ${vehicle.variant}
+
+                    <br>
+
+                    ${count}
+                    component information entries
+
+                </p>
+
+                <span class="explore">
+
+                    ❤️ Take Extra Care of My EV →
+
+                </span>
+
+            `;
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    section.appendChild(
+        grid
+    );
+
+
+    container.appendChild(
+        section
+    );
+
+}
+
+
+/* ==========================================================
+   SELECT VEHICLE
+========================================================== */
+
+function selectVehicle(
+    vehicleId
+) {
+
+    const vehicle =
+        vehicles.find(
+            item =>
+                item.id ===
+                vehicleId
+        );
+
+
+    if(!vehicle) {
+
+        return;
+
+    }
+
+
+    const vehicleComponents =
+        components.filter(
+            component =>
+                component.vehicleId ===
+                vehicleId
+        );
+
+
+    const container =
+        document.getElementById(
+            "selectedVehicleContainer"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="my-ev-banner">
+
+            <div>
+
+                <div class="my-ev-label">
+
+                    ❤️ My EV
+
+                </div>
+
+                <h3>
+
+                    ${vehicle.model}
+
+                </h3>
+
+                <p>
+
+                    ${
+                        vehicle.category === "2W"
+                            ? "2-Wheeler"
+                            : vehicle.category === "3W"
+                                ? "3-Wheeler"
+                                : "4-Wheeler"
+                    }
+
+                    |
+
+                    ${vehicle.variant}
+
+                </p>
+
+                <div class="care-ev-text">
+
+                    Take Extra Care of My EV
+
+                </div>
+
+            </div>
+
+
+            <button class="back-button"
+                    onclick="document.getElementById('modelsSection').scrollIntoView({behavior:'smooth'})">
+
+                ← Back to Models
+
+            </button>
+
+        </div>
+
+
+        <div class="component-list"
+             id="vehicleComponentList">
+
+        </div>
+
+    `;
+
+
+    const list =
+        document.getElementById(
+            "vehicleComponentList"
+        );
+
+
+    vehicleComponents.forEach(
+        component => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "component-row";
+
+
+            row.innerHTML = `
+
+                <div>
+
+                    <span class="component-tag">
+
+                        ${component.componentCategory}
+
+                    </span>
+
+                </div>
+
+
+                <div class="component-main">
+
+                    <h4>
+
+                        ${component.name}
+
+                    </h4>
+
+                    <p>
+
+                        ${component.description}
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span class="verify-small">
+
+                        ${
+                            component.status
+                                .toUpperCase()
+                        }
+
+                    </span>
+
+                    <br><br>
+
+                    <button
+                        class="details-btn"
+                        onclick="showComponent('${component.id}')">
+
+                        Part Information
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    document.getElementById(
+        "componentsSection"
+    ).scrollIntoView({
+        behavior:
+            "smooth"
+    });
+
+}
+
+
+/* ==========================================================
+   SHOW ALL COMPONENTS
+========================================================== */
+
+function showAllComponents() {
+
+    document.getElementById(
+        "allComponentsSection"
+    ).scrollIntoView({
+        behavior:
+            "smooth"
+    });
+
+
+    setActiveNav(
+        "Components"
+    );
+
+}
+
+
+/* ==========================================================
+   RENDER ALL COMPONENTS
+========================================================== */
+
+function renderAllComponents(
+    filter
+) {
+
+    const grid =
+        document.getElementById(
+            "allComponentsGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    let filtered =
+        components;
+
+
+    if(
+        filter !== "ALL"
+    ) {
+
+        filtered =
+            components.filter(
+                component =>
+                    component.category ===
+                    filter
+            );
+
+    }
+
+
+    filtered.forEach(
+        component => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "mini-component";
+
+
+            item.onclick =
+                function() {
+
+                    showComponent(
+                        component.id
+                    );
+
+                };
+
+
+            item.innerHTML = `
+
+                <small>
+
+                    ${component.componentCategory}
+
+                </small>
+
+                <h4>
+
+                    ${component.name}
+
+                </h4>
+
+                <span>
+
+                    ${component.model}
+
+                </span>
+
+            `;
+
+
+            grid.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   FILTER COMPONENTS
+========================================================== */
+
+function filterAllComponents(
+    category,
+    clickedButton
+) {
+
+    document.querySelectorAll(
+        ".filter-btn"
+    ).forEach(
+        button => {
+
+            button.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    clickedButton.classList.add(
+        "active"
+    );
+
+
+    renderAllComponents(
+        category
+    );
+
+}
+
+
+/* ==========================================================
+   SHOW PART INFORMATION
+========================================================== */
+
+function showComponent(
+    componentId
+) {
+
+    const component =
+        components.find(
+            item =>
+                item.id ===
+                componentId
+        );
+
+
+    if(!component) {
+
+        return;
+
+    }
+
+
+    currentPDFComponent =
+        component;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        component.name;
+
+
+    document.getElementById(
+        "modalStatus"
+    ).textContent =
+        component.status;
+
+
+    document.getElementById(
+        "detailModel"
+    ).textContent =
+        component.model;
+
+
+    document.getElementById(
+        "detailCategory"
+    ).textContent =
+
+        component.category === "2W"
+            ? "2-Wheeler"
+            : component.category === "3W"
+                ? "3-Wheeler"
+                : "4-Wheeler";
+
+
+    document.getElementById(
+        "detailYear"
+    ).textContent =
+        component.year;
+
+
+    document.getElementById(
+        "detailVariant"
+    ).textContent =
+        component.variant;
+
+
+    document.getElementById(
+        "detailComponent"
+    ).textContent =
+        component.componentCategory;
+
+
+    document.getElementById(
+        "detailBattery"
+    ).textContent =
+        component.battery;
+
+
+    document.getElementById(
+        "detailVoltage"
+    ).textContent =
+        component.voltage;
+
+
+    document.getElementById(
+        "detailCurrent"
+    ).textContent =
+        component.current;
+
+
+    document.getElementById(
+        "detailConnector"
+    ).textContent =
+        component.connector;
+
+
+    document.getElementById(
+        "detailDimensions"
+    ).textContent =
+        component.dimensions;
+
+
+    document.getElementById(
+        "detailOEM"
+    ).textContent =
+        component.oemPartNo;
+
+
+    document.getElementById(
+        "detailVIN"
+    ).textContent =
+        component.vin;
+
+
+    document.getElementById(
+        "detailPrice"
+    ).textContent =
+        component.sellerPrice;
+
+
+    const description =
+        document.getElementById(
+            "modalDescription"
+        );
+
+
+    description.innerHTML = `
+
+        <strong>
+            ${component.description}
+        </strong>
+
+        <br><br>
+
+        <strong>
+            Source:
+        </strong>
+
+        ${component.source}
+
+    `;
+
+
+    if(
+        component.sourceUrl &&
+        component.sourceUrl !==
+            "Pending Verification"
+    ) {
+
+        description.innerHTML += `
+
+            <br>
+
+            <a
+                class="source-link"
+                href="${component.sourceUrl}"
+                target="_blank"
+                rel="noopener">
+
+                🔗 Open Source / Manufacturer Information
+
+            </a>
+
+        `;
+
+    }
+
+
+    document.getElementById(
+        "componentModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* ==========================================================
+   CLOSE MODAL
+========================================================== */
+
+function closeModal() {
+
+    document.getElementById(
+        "componentModal"
+    ).classList.remove(
+        "show"
+    );
+
+}
+
+
+function closeModalOutside(
+    event
+) {
+
+    if(
+        event.target.id ===
+        "componentModal"
+    ) {
+
+        closeModal();
+
+    }
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if(
+            event.key ===
+            "Escape"
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   PDF VERIFICATION / PROOF SHEET
+========================================================== */
+
+function downloadComponentPDF() {
+
+    if(!currentPDFComponent) {
+
+        alert(
+            "Please open a component first."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        typeof window.jspdf ===
+        "undefined"
+    ) {
+
+        alert(
+            "PDF library is not available. Please refresh the page."
+        );
+
+        return;
+
+    }
+
+
+    const {
+        jsPDF
+    } =
+        window.jspdf;
+
+
+    const component =
+        currentPDFComponent;
+
+
+    const vehicle =
+        vehicles.find(
+            item =>
+                item.id ===
+                component.vehicleId
+        );
+
+
+    const pdf =
+        new jsPDF({
+            orientation:
+                "portrait",
+
+            unit:
+                "mm",
+
+            format:
+                "a4"
+        });
+
+
+    const pageWidth =
+        pdf.internal.pageSize.getWidth();
+
+
+    const pageHeight =
+        pdf.internal.pageSize.getHeight();
+
+
+    const left =
+        15;
+
+
+    const right =
+        15;
+
+
+    const usableWidth =
+        pageWidth -
+        left -
+        right;
+
+
+    let y =
+        18;
+
+
+    /* ======================================================
+       HEADER
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        19
+    );
+
+
+    pdf.text(
+        "eLight EV Parts",
+        left,
+        y
+    );
+
+
+    y += 8;
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+
+    pdf.setFontSize(
+        10
+    );
+
+
+    pdf.text(
+        "Your EV Deserves Extra Care.",
+        left,
+        y
+    );
+
+
+    y += 7;
+
+
+    pdf.text(
+        "EV Parts & Components Information Platform",
+        left,
+        y
+    );
+
+
+    y += 7;
+
+
+    pdf.line(
+        left,
+        y,
+        pageWidth - right,
+        y
+    );
+
+
+    y += 10;
+
+
+    /* ======================================================
+       TITLE
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        15
+    );
+
+
+    pdf.text(
+        "Part Information / Verification Sheet",
+        left,
+        y
+    );
+
+
+    y += 10;
+
+
+    /* ======================================================
+       HELPER
+    ====================================================== */
+
+    function addField(
+        label,
+        value
+    ) {
+
+        const labelWidth =
+            48;
+
+
+        const valueWidth =
+            usableWidth -
+            labelWidth;
+
+
+        let safeValue =
+            value;
+
+
+        if(
+            safeValue === undefined ||
+            safeValue === null ||
+            safeValue === ""
+        ) {
+
+            safeValue =
+                "Pending Verification";
+
+        }
+
+
+        safeValue =
+            String(safeValue);
+
+
+        const lines =
+            pdf.splitTextToSize(
+                safeValue,
+                valueWidth
+            );
+
+
+        if(
+            y >
+            pageHeight - 30
+        ) {
+
+            pdf.addPage();
+
+            y = 18;
+
+        }
+
+
+        pdf.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        pdf.setFontSize(
+            9
+        );
+
+
+        pdf.text(
+            label,
+            left,
+            y
+        );
+
+
+        pdf.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        pdf.text(
+            lines,
+            left + labelWidth,
+            y
+        );
+
+
+        y +=
+            Math.max(
+                5,
+                lines.length * 5
+            );
+
+
+        y += 2;
+
+    }
+
+
+    /* ======================================================
+       STATUS
+    ====================================================== */
+
+    addField(
+        "Status:",
+        component.status
+    );
+
+
+    /* ======================================================
+       VEHICLE INFORMATION
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        12
+    );
+
+
+    pdf.text(
+        "Vehicle Information",
+        left,
+        y
+    );
+
+
+    y += 8;
+
+
+    addField(
+        "Manufacturer:",
+        vehicle
+            ? vehicle.manufacturer
+            : component.manufacturer
+    );
+
+
+    addField(
+        "EV Model:",
+        component.model
+    );
+
+
+    addField(
+        "Category:",
+        component.category === "2W"
+            ? "2-Wheeler"
+            : component.category === "3W"
+                ? "3-Wheeler"
+                : "4-Wheeler"
+    );
+
+
+    addField(
+        "Model Year:",
+        component.year
+    );
+
+
+    addField(
+        "Variant:",
+        component.variant
+    );
+
+
+    addField(
+        "Battery:",
+        component.battery
+    );
+
+
+    addField(
+        "Voltage:",
+        component.voltage
+    );
+
+
+    addField(
+        "Current / Capacity:",
+        component.current
+    );
+
+
+    addField(
+        "Connector:",
+        component.connector
+    );
+
+
+    addField(
+        "Dimensions:",
+        component.dimensions
+    );
+
+
+    addField(
+        "OEM Part Number:",
+        component.oemPartNo
+    );
+
+
+    addField(
+        "VIN / Chassis:",
+        component.vin
+    );
+
+
+    /* ======================================================
+       COMPONENT
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        12
+    );
+
+
+    pdf.text(
+        "Component Information",
+        left,
+        y
+    );
+
+
+    y += 8;
+
+
+    addField(
+        "Component:",
+        component.componentCategory
+    );
+
+
+    addField(
+        "Part / Component:",
+        component.name
+    );
+
+
+    addField(
+        "Description:",
+        component.description
+    );
+
+
+    /* ======================================================
+       SOURCE
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        12
+    );
+
+
+    pdf.text(
+        "Source / Evidence",
+        left,
+        y
+    );
+
+
+    y += 8;
+
+
+    addField(
+        "Source:",
+        component.source
+    );
+
+
+    addField(
+        "Source URL:",
+        component.sourceUrl
+    );
+
+
+    /* ======================================================
+       DISCLAIMER
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+
+    pdf.setFontSize(
+        11
+    );
+
+
+    pdf.text(
+        "Important Verification Notice",
+        left,
+        y
+    );
+
+
+    y += 7;
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+
+    pdf.setFontSize(
+        9
+    );
+
+
+    const notice =
+
+        "This PDF is generated by eLight EV Parts " +
+        "for catalogue reference and source tracking. " +
+
+        "It is not an OEM certificate and does not guarantee " +
+        "part compatibility. " +
+
+        "The user must verify model, year, variant, battery " +
+        "configuration, voltage, current, connector, dimensions, " +
+        "OEM part number and VIN/chassis applicability before " +
+        "purchase, installation or compatibility claims.";
+
+
+    const noticeLines =
+        pdf.splitTextToSize(
+            notice,
+            usableWidth
+        );
+
+
+    pdf.text(
+        noticeLines,
+        left,
+        y
+    );
+
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
+
+    const generated =
+        new Date().toLocaleString(
+            "en-IN"
+        );
+
+
+    pdf.setFontSize(
+        8
+    );
+
+
+    pdf.text(
+        "Generated by eLight EV Parts | " +
+        generated,
+        left,
+        pageHeight - 12
+    );
+
+
+    /* ======================================================
+       FILE NAME
+    ====================================================== */
+
+    const modelName =
+        component.model
+            .replace(
+                /[^a-z0-9]/gi,
+                "_"
+            );
+
+
+    const componentName =
+        component.componentCategory
+            .replace(
+                /[^a-z0-9]/gi,
+                "_"
+            );
+
+
+    const fileName =
+
+        "eLight_EV_Parts_" +
+        modelName +
+        "_" +
+        componentName +
+        "_Proof.pdf";
+
+
+    pdf.save(
+        fileName
+    );
+
+}
+
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+function performSearch() {
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    const query =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    if(
+        query === ""
+    ) {
+
+        renderModels();
+
+        renderAllComponents(
+            "ALL"
+        );
+
+        return;
+
+    }
+
+
+    /* ======================================================
+       SEARCH VEHICLES
+    ====================================================== */
+
+    const matchingVehicles =
+        vehicles.filter(
+            vehicle => {
+
+                const searchableText = [
+
+                    vehicle.manufacturer,
+
+                    vehicle.model,
+
+                    vehicle.category,
+
+                    vehicle.year,
+
+                    vehicle.variant,
+
+                    vehicle.battery,
+
+                    vehicle.batteryVoltage,
+
+                    vehicle.motor,
+
+                    vehicle.motorPower,
+
+                    vehicle.currentRating,
+
+                    vehicle.chargingConnector,
+
+                    vehicle.dimensions,
+
+                    vehicle.oemPartNumber,
+
+                    vehicle.vin
+
+                ]
+                .join(" ")
+                .toLowerCase();
+
+
+                return searchableText
+                    .includes(query);
+
+            }
+        );
+
+
+    /* ======================================================
+       SEARCH COMPONENTS
+    ====================================================== */
+
+    const matchingComponents =
+        components.filter(
+            component => {
+
+                const searchableText = [
+
+                    component.manufacturer,
+
+                    component.model,
+
+                    component.category,
+
+                    component.componentCategory,
+
+                    component.name,
+
+                    component.year,
+
+                    component.variant,
+
+                    component.battery,
+
+                    component.voltage,
+
+                    component.current,
+
+                    component.connector,
+
+                    component.dimensions,
+
+                    component.oemPartNo,
+
+                    component.vin
+
+                ]
+                .join(" ")
+                .toLowerCase();
+
+
+                return searchableText
+                    .includes(query);
+
+            }
+        );
+
+
+    /* ======================================================
+       DISPLAY MODEL RESULTS
+    ====================================================== */
+
+    const modelsContainer =
+        document.getElementById(
+            "modelsContainer"
+        );
+
+
+    modelsContainer.innerHTML = "";
+
+
+    if(
+        matchingVehicles.length >
+        0
+    ) {
+
+        const heading =
+            document.createElement(
+                "div"
+            );
+
+
+        heading.className =
+            "category-title";
+
+
+        heading.innerHTML = `
+
+            <h3>
+
+                🔎 Matching EV Models
+
+            </h3>
+
+            <span>
+
+                ${matchingVehicles.length}
+                results
+
+            </span>
+
+        `;
+
+
+        modelsContainer.appendChild(
+            heading
+        );
+
+
+        const grid =
+            document.createElement(
+                "div"
+            );
+
+
+        grid.className =
+            "model-grid";
+
+
+        matchingVehicles.forEach(
+            vehicle => {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "model-card";
+
+
+                card.onclick =
+                    function() {
+
+                        selectVehicle(
+                            vehicle.id
+                        );
+
+                    };
+
+
+                card.innerHTML = `
+
+                    <span class="vehicle-type">
+
+                        ${
+                            vehicle.category === "2W"
+                                ? "2-WHEELER"
+                                : vehicle.category === "3W"
+                                    ? "3-WHEELER"
+                                    : "4-WHEELER"
+                        }
+
+                    </span>
+
+
+                    <h4>
+
+                        ${vehicle.model}
+
+                    </h4>
+
+
+                    <p>
+
+                        ${vehicle.variant}
+
+                        <br>
+
+                        ${vehicle.battery}
+
+                    </p>
+
+
+                    <span class="explore">
+
+                        ❤️ Take Extra Care of My EV →
+
+                    </span>
+
+                `;
+
+
+                grid.appendChild(
+                    card
+                );
+
+            }
+        );
+
+
+        modelsContainer.appendChild(
+            grid
+        );
+
+    }
+
+
+    /* ======================================================
+       DISPLAY COMPONENT RESULTS
+    ====================================================== */
+
+    const componentGrid =
+        document.getElementById(
+            "allComponentsGrid"
+        );
+
+
+    componentGrid.innerHTML = "";
+
+
+    matchingComponents
+        .slice(
+            0,
+            100
+        )
+        .forEach(
+            component => {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "mini-component";
+
+
+                item.onclick =
+                    function() {
+
+                        showComponent(
+                            component.id
+                        );
+
+                    };
+
+
+                item.innerHTML = `
+
+                    <small>
+
+                        ${component.componentCategory}
+
+                    </small>
+
+
+                    <h4>
+
+                        ${component.name}
+
+                    </h4>
+
+
+                    <span>
+
+                        ${component.model}
+
+                    </span>
+
+                `;
+
+
+                componentGrid.appendChild(
+                    item
+                );
+
+            }
+        );
+
+
+    /* ======================================================
+       NO RESULTS
+    ====================================================== */
+
+    if(
+        matchingVehicles.length === 0 &&
+        matchingComponents.length === 0
+    ) {
+
+        modelsContainer.innerHTML = `
+
+            <div class="no-results">
+
+                No EV model or component found for:
+
+                <strong>
+                    ${query}
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* ======================================================
+       SCROLL TO RESULTS
+    ====================================================== */
+
+    document.getElementById(
+        "modelsSection"
+    ).scrollIntoView({
+        behavior:
+            "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

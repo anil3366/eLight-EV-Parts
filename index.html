@@ -4586,6 +4586,16 @@ function selectVehicle(
         );
 
 
+    // Google Analytics: track EV model opened
+    if (vehicle && typeof gtag === "function") {
+        gtag('event', 'vehicle_view', {
+            vehicle_id: vehicle.id,
+            vehicle_name: vehicle.model,
+            vehicle_category: vehicle.category,
+            vehicle_variant: vehicle.variant || 'Not specified'
+        });
+    }
+
     if(!vehicle) {
 
         return;
@@ -4922,7 +4932,16 @@ function showComponent(
                 componentId
         );
 
-
+    // Google Analytics: track component opened
+    if (component && typeof gtag === "function") {
+        gtag('event', 'component_view', {
+            component_id: component.id,
+            component_name: component.name,
+            component_category: component.componentCategory,
+            vehicle_model: component.model,
+            vehicle_category: component.category
+        });
+    }
     if(!component) {
 
         return;
@@ -5723,6 +5742,14 @@ function downloadComponentPDF() {
         "_Proof.pdf";
 
 
+if (typeof gtag === "function") {
+    gtag('event', 'pdf_download', {
+        vehicle_model: component.model,
+        component_name: component.name,
+        component_category: component.componentCategory
+    });
+}
+
     pdf.save(
         fileName
     );
@@ -5733,6 +5760,7 @@ function downloadComponentPDF() {
 /* ==========================================================
    SEARCH
 ========================================================== */
+let searchAnalyticsTimer;
 
 function performSearch() {
 
@@ -5759,6 +5787,21 @@ function performSearch() {
         );
 
         return;
+
+    // Google Analytics: track what users search
+    clearTimeout(searchAnalyticsTimer);
+
+    if (query.length >= 2) {
+        searchAnalyticsTimer = setTimeout(function () {
+
+            if (typeof gtag === "function") {
+                gtag('event', 'ev_search', {
+                    search_term: query
+                });
+            }
+
+        }, 1000);
+    }
 
     }
 

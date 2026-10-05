@@ -24,8 +24,7 @@
         gtag('config', 'G-TSPJQMJT0L');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 
     <title>eLight EV Parts | Your EV Deserves Extra Care</title>
@@ -4289,17 +4288,16 @@ function setActiveNav(
    SHOW CATEGORY
 ========================================================== */
 
-function showCategory(
-    category
-) {
+function showCategory(category) {
 
-    const filtered =
-        vehicles.filter(
-            vehicle =>
-                vehicle.category ===
-                category
-        );
+    // Google Analytics: track vehicle category selected
+    if (typeof gtag === "function") {
+        gtag('event', 'vehicle_category_view', {
+            vehicle_category: category
+        });
+    }
 
+    // Your existing showCategory code continues here...
 
     renderModelGroup(
         category,
@@ -5769,14 +5767,47 @@ function performSearch() {
             "searchInput"
         );
 
-
     const query =
         input.value
             .trim()
             .toLowerCase();
 
 
-    if(
+    /* =====================================================
+       GOOGLE ANALYTICS — TRACK WHAT USERS SEARCH
+       Wait 1 second after the user stops typing
+    ===================================================== */
+
+    clearTimeout(searchAnalyticsTimer);
+
+    if (query.length >= 2) {
+
+        searchAnalyticsTimer =
+            setTimeout(function () {
+
+                if (typeof gtag === "function") {
+
+                    gtag(
+                        "event",
+                        "ev_search",
+                        {
+                            search_term: query,
+                            search_type: "model_or_component"
+                        }
+                    );
+
+                }
+
+            }, 1000);
+
+    }
+
+
+    /* =====================================================
+       EMPTY SEARCH
+    ===================================================== */
+
+    if (
         query === ""
     ) {
 
@@ -5788,22 +5819,13 @@ function performSearch() {
 
         return;
 
-    // Google Analytics: track what users search
-    clearTimeout(searchAnalyticsTimer);
-
-    if (query.length >= 2) {
-        searchAnalyticsTimer = setTimeout(function () {
-
-            if (typeof gtag === "function") {
-                gtag('event', 'ev_search', {
-                    search_term: query
-                });
-            }
-
-        }, 1000);
     }
 
-    }
+
+    /* =====================================================
+       YOUR EXISTING SEARCH CODE CONTINUES HERE
+    ===================================================== */
+
 
 
     /* ======================================================

@@ -2757,6 +2757,18 @@
     </section>
 
 
+
+
+<section class="recently-viewed-section">
+
+    <h2>⭐ Recently Viewed</h2>
+
+    <p>Your recently viewed EV models</p>
+
+    <div id="recentlyViewedContainer"></div>
+
+</section>
+
     <!-- ======================================================
          EV MODELS
     ====================================================== -->
@@ -4750,6 +4762,7 @@ function selectVehicle(
         return;
 
     }
+updateRecentlyViewed(vehicle);
 
 
     /* ======================================================

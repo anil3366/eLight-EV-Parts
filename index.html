@@ -2308,6 +2308,56 @@
 
         }
 
+/* ==========================================================
+   SEARCH SUGGESTIONS
+========================================================== */
+.search-box {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+}
+
+.search-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    font-size: 16px;
+}
+
+.search-box + button {
+    padding: 14px 22px;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+}
+
+.search-suggestion {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333333;
+    background: #ffffff;
+}
+.search-suggestion:hover {
+    background: #f5f5f5;
+ color: #000000;
+}
+
     </style>
 
 </head>
@@ -2436,20 +2486,23 @@
         </p>
 
 
-        <div class="search-box">
+<div class="search-box">
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search your EV model or component..."
-                oninput="performSearch()">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search your EV model or component...">
 
+    <div id="searchSuggestions" class="search-suggestions"></div>
 
-            <button onclick="performSearch()">
+</div>
 
-                🔍 Search
-
-            </button>
+<button 
+    type="button"
+    onclick="performSearch(true)">
+    🔍 Search
+</button>
+<div id="searchMessage"></div>
 
         </div>
 
@@ -4140,21 +4193,27 @@ let currentPDFComponent = null;
    INITIALIZATION
 ========================================================== */
 
+/* ==========================================================
+   INITIALIZATION
+========================================================== */
+
+history.scrollRestoration = "manual";
+
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        // Always start at the top when the page loads
+        window.scrollTo(0, 0);
 
         updateStatistics();
 
         renderModels();
 
-        renderAllComponents(
-            "ALL"
-        );
+        renderAllComponents("ALL");
 
     }
 );
-
 
 /* ==========================================================
    STATISTICS
@@ -4291,43 +4350,44 @@ function setActiveNav(
 
 function showCategory(category) {
 
-    // Google Analytics: track vehicle category selected
+    // Google Analytics
     if (typeof gtag === "function") {
         gtag('event', 'vehicle_category_view', {
             vehicle_category: category
         });
     }
 
-    // Your existing showCategory code continues here...
+    // Get vehicle data
+    const filtered = vehicles.filter(vehicle => {
+        return vehicle.category === category;
+    });
 
+    // Render vehicles for selected category
     renderModelGroup(
         category,
         filtered,
         true
     );
 
+    // Move to vehicle/model section
+    const modelsSection = document.getElementById("modelsSection");
 
-    document.getElementById(
-        "modelsSection"
-    ).scrollIntoView({
-        behavior:
-            "smooth"
-    });
+    if (modelsSection) {
+        modelsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 
-
+    // Set active navigation
     setActiveNav(
-
         category === "2W"
             ? "2-Wheeler"
             : category === "3W"
                 ? "3-Wheeler"
                 : "4-Wheeler"
-
     );
-
 }
-
-
 /* ==========================================================
    RENDER MODELS
 ========================================================== */
@@ -4595,11 +4655,19 @@ function selectVehicle(
         });
     }
 
+
     if(!vehicle) {
 
         return;
 
     }
+
+
+    /* ======================================================
+       RECENTLY VIEWED — ADD VEHICLE
+    ====================================================== */
+
+    updateRecentlyViewed(vehicle);
 
 
     const vehicleComponents =
@@ -4768,7 +4836,6 @@ function selectVehicle(
     });
 
 }
-
 
 /* ==========================================================
    SHOW ALL COMPONENTS
@@ -5095,10 +5162,80 @@ function showComponent(
     }
 
 
+
+/* ======================================================
+   REPORT INCORRECT INFORMATION
+====================================================== */
+
+description.innerHTML += `
+
+    <br><br>
+
+    <button
+        type="button"
+        class="report-info-btn"
+        onclick="reportIncorrectInformation()">
+
+        ⚠️ Report Incorrect Information
+
+    </button>
+
+`;
+
+
     document.getElementById(
         "componentModal"
     ).classList.add(
         "show"
+    );
+
+}
+
+
+
+/* ==========================================================
+   REPORT INCORRECT INFORMATION Continuation
+========================================================== */
+
+function reportIncorrectInformation() {
+
+    if (!currentPDFComponent) {
+        return;
+    }
+
+    const component = currentPDFComponent;
+
+    const message =
+        "Report for:\n\n" +
+        "EV Model: " + component.model + "\n" +
+        "Component: " + component.componentCategory + "\n" +
+        "Part / Component: " + component.name + "\n\n" +
+        "Please describe the incorrect or missing information:";
+
+    const report =
+        prompt(message);
+
+    if (!report || report.trim() === "") {
+        return;
+    }
+
+    if (typeof gtag === "function") {
+
+        gtag("event", "incorrect_information_report", {
+
+            vehicle_model: component.model,
+
+            component_name: component.name,
+
+            component_category:
+                component.componentCategory,
+
+        });
+
+    }
+
+    alert(
+        "Thank you. Your report has been recorded for review."
     );
 
 }
@@ -5756,17 +5893,17 @@ if (typeof gtag === "function") {
 }
 
 
+
 /* ==========================================================
    SEARCH
 ========================================================== */
+
 let searchAnalyticsTimer;
 
-function performSearch() {
+function performSearch(shouldScroll = false) {
 
     const input =
-        document.getElementById(
-            "searchInput"
-        );
+        document.getElementById("searchInput");
 
     const query =
         input.value
@@ -5774,10 +5911,9 @@ function performSearch() {
             .toLowerCase();
 
 
-    /* =====================================================
-       GOOGLE ANALYTICS — TRACK WHAT USERS SEARCH
-       Wait 1 second after the user stops typing
-    ===================================================== */
+    /* ======================================================
+       GOOGLE ANALYTICS — SEARCH
+    ====================================================== */
 
     clearTimeout(searchAnalyticsTimer);
 
@@ -5788,14 +5924,14 @@ function performSearch() {
 
                 if (typeof gtag === "function") {
 
-                    gtag(
-                        "event",
-                        "ev_search",
-                        {
-                            search_term: query,
-                            search_type: "model_or_component"
-                        }
-                    );
+                    gtag("event", "ev_search", {
+
+                        search_term: query,
+
+                        search_type:
+                            "model_or_component"
+
+                    });
 
                 }
 
@@ -5804,130 +5940,339 @@ function performSearch() {
     }
 
 
-    /* =====================================================
+    /* ======================================================
        EMPTY SEARCH
-    ===================================================== */
+    ====================================================== */
 
-    if (
-        query === ""
-    ) {
+    if (query === "") {
 
         renderModels();
 
-        renderAllComponents(
-            "ALL"
-        );
+        renderAllComponents("ALL");
 
         return;
 
     }
 
 
-    /* =====================================================
-       YOUR EXISTING SEARCH CODE CONTINUES HERE
-    ===================================================== */
+/* ======================================================
+   SEARCH VEHICLES
+====================================================== */
+
+const matchingVehicles =
+    vehicles.filter(vehicle => {
+
+        const searchableText = [
+
+            vehicle.manufacturer,
+            vehicle.model,
+            vehicle.category,
+            vehicle.year,
+            vehicle.variant,
+            vehicle.battery,
+            vehicle.batteryVoltage,
+            vehicle.motor,
+            vehicle.motorPower,
+            vehicle.currentRating,
+            vehicle.chargingConnector,
+            vehicle.dimensions,
+            vehicle.oemPartNumber,
+            vehicle.vin
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return searchableText.includes(query);
+
+    });
 
 
+/* ======================================================
+   SEARCH COMPONENTS
+   Supports common EV abbreviations and keywords
+====================================================== */
 
-    /* ======================================================
-       SEARCH VEHICLES
-    ====================================================== */
+const searchAliases = {
 
-    const matchingVehicles =
-        vehicles.filter(
-            vehicle => {
+    /* Battery Management System */
 
-                const searchableText = [
+    "bms": [
+        "battery management",
+        "battery management system"
+    ],
 
-                    vehicle.manufacturer,
+    "battery management system": [
+        "battery management",
+        "battery management system",
+        "bms"
+    ],
 
-                    vehicle.model,
-
-                    vehicle.category,
-
-                    vehicle.year,
-
-                    vehicle.variant,
-
-                    vehicle.battery,
-
-                    vehicle.batteryVoltage,
-
-                    vehicle.motor,
-
-                    vehicle.motorPower,
-
-                    vehicle.currentRating,
-
-                    vehicle.chargingConnector,
-
-                    vehicle.dimensions,
-
-                    vehicle.oemPartNumber,
-
-                    vehicle.vin
-
-                ]
-                .join(" ")
-                .toLowerCase();
+    "battery management": [
+        "battery management",
+        "battery management system",
+        "bms"
+    ],
 
 
-                return searchableText
-                    .includes(query);
+    /* On-Board Charger */
 
-            }
+    "obc": [
+        "on-board charger",
+        "charger"
+    ],
+
+    "on board charger": [
+        "on-board charger",
+        "charger"
+    ],
+
+    "charger": [
+        "on-board charger",
+        "charger"
+    ],
+
+
+    /* Motor Controller */
+
+    "mcu": [
+        "motor controller",
+        "controller"
+    ],
+
+    "motor controller": [
+        "motor controller",
+        "controller",
+        "mcu"
+    ],
+
+    "controller": [
+        "motor controller",
+        "controller",
+        "mcu"
+    ],
+
+
+    /* DC-DC Converter */
+
+    "dc-dc": [
+        "dc-dc converter",
+        "converter"
+    ],
+
+    "dc dc": [
+        "dc-dc converter",
+        "converter"
+    ],
+
+    "dcdc": [
+        "dc-dc converter",
+        "converter"
+    ],
+
+    "converter": [
+        "dc-dc converter",
+        "converter"
+    ],
+
+
+    /* Traction Battery */
+
+    "battery": [
+        "traction battery",
+        "battery"
+    ],
+
+    "traction battery": [
+        "traction battery",
+        "battery"
+    ],
+
+
+    /* Charging Port */
+
+    "charging port": [
+        "charging port"
+    ],
+
+    "charge port": [
+        "charging port"
+    ],
+
+
+    /* Motor */
+
+    "motor": [
+        "traction motor",
+        "motor"
+    ],
+
+    "traction motor": [
+        "traction motor",
+        "motor"
+    ],
+
+
+    /* Brake */
+
+    "brake": [
+        "brake system",
+        "brake"
+    ],
+
+    "brakes": [
+        "brake system",
+        "brake"
+    ],
+
+
+    /* Suspension */
+
+    "suspension": [
+        "suspension"
+    ],
+
+
+    /* Thermal Management */
+
+    "thermal": [
+        "thermal management"
+    ],
+
+    "cooling": [
+        "thermal management"
+    ],
+
+
+    /* Electrical Harness */
+
+    "harness": [
+        "electrical harness",
+        "harness"
+    ],
+
+    "wiring": [
+        "electrical harness",
+        "harness"
+    ],
+
+
+    /* Fuse & Protection */
+
+    "fuse": [
+        "fuse & protection",
+        "fuse"
+    ],
+
+    "protection": [
+        "fuse & protection",
+        "protection"
+    ],
+
+
+    /* Tyre */
+
+    "tyre": [
+        "tyre"
+    ],
+
+    "tire": [
+        "tyre"
+    ],
+
+
+    /* Display */
+
+    "display": [
+        "display"
+    ],
+
+    "dashboard": [
+        "display"
+    ]
+
+};
+
+
+/* ======================================================
+   GET SEARCH TERMS
+====================================================== */
+
+const searchTerms =
+    searchAliases[query] || [query];
+
+
+/* ======================================================
+   SEARCH COMPONENT DATABASE
+====================================================== */
+
+const matchingComponents =
+    components.filter(component => {
+
+        const searchableText = [
+
+            component.manufacturer,
+            component.model,
+            component.category,
+            component.componentCategory,
+            component.name,
+            component.year,
+            component.variant,
+            component.battery,
+            component.voltage,
+            component.current,
+            component.connector,
+            component.dimensions,
+            component.oemPartNo,
+            component.vin
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        return searchTerms.some(term =>
+            searchableText.includes(term)
         );
 
-
-    /* ======================================================
-       SEARCH COMPONENTS
-    ====================================================== */
-
-    const matchingComponents =
-        components.filter(
-            component => {
-
-                const searchableText = [
-
-                    component.manufacturer,
-
-                    component.model,
-
-                    component.category,
-
-                    component.componentCategory,
-
-                    component.name,
-
-                    component.year,
-
-                    component.variant,
-
-                    component.battery,
-
-                    component.voltage,
-
-                    component.current,
-
-                    component.connector,
-
-                    component.dimensions,
-
-                    component.oemPartNo,
-
-                    component.vin
-
-                ]
-                .join(" ")
-                .toLowerCase();
+    });
 
 
-                return searchableText
-                    .includes(query);
+/* ======================================================
+   GOOGLE ANALYTICS — RESULT STATUS
+====================================================== */
 
-            }
-        );
+const totalSearchResults =
+    matchingVehicles.length +
+    matchingComponents.length;
 
+if (typeof gtag === "function") {
+
+    if (totalSearchResults > 0) {
+
+        gtag("event", "part_found", {
+
+            search_term: query,
+
+            vehicle_results:
+                matchingVehicles.length,
+
+            component_results:
+                matchingComponents.length
+
+        });
+
+    } else {
+
+        gtag("event", "part_not_found", {
+
+            search_term: query
+
+        });
+
+    }
+
+}
 
     /* ======================================================
        DISPLAY MODEL RESULTS
@@ -5938,42 +6283,29 @@ function performSearch() {
             "modelsContainer"
         );
 
-
     modelsContainer.innerHTML = "";
 
 
-    if(
-        matchingVehicles.length >
-        0
-    ) {
+    if (matchingVehicles.length > 0) {
 
         const heading =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         heading.className =
             "category-title";
 
-
         heading.innerHTML = `
 
             <h3>
-
                 🔎 Matching EV Models
-
             </h3>
 
             <span>
-
                 ${matchingVehicles.length}
                 results
-
             </span>
 
         `;
-
 
         modelsContainer.appendChild(
             heading
@@ -5981,10 +6313,7 @@ function performSearch() {
 
 
         const grid =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         grid.className =
             "model-grid";
@@ -5994,10 +6323,7 @@ function performSearch() {
             vehicle => {
 
                 const card =
-                    document.createElement(
-                        "div"
-                    );
-
+                    document.createElement("div");
 
                 card.className =
                     "model-card";
@@ -6027,13 +6353,9 @@ function performSearch() {
 
                     </span>
 
-
                     <h4>
-
                         ${vehicle.model}
-
                     </h4>
-
 
                     <p>
 
@@ -6044,7 +6366,6 @@ function performSearch() {
                         ${vehicle.battery}
 
                     </p>
-
 
                     <span class="explore">
 
@@ -6070,118 +6391,519 @@ function performSearch() {
     }
 
 
-    /* ======================================================
-       DISPLAY COMPONENT RESULTS
-    ====================================================== */
+/* ======================================================
+   DISPLAY COMPONENT RESULTS
+====================================================== */
 
-    const componentGrid =
-        document.getElementById(
-            "allComponentsGrid"
-        );
+const componentGrid =
+    document.getElementById(
+        "allComponentsGrid"
+    );
 
-
-    componentGrid.innerHTML = "";
-
-
-    matchingComponents
-        .slice(
-            0,
-            100
-        )
-        .forEach(
-            component => {
-
-                const item =
-                    document.createElement(
-                        "div"
-                    );
+componentGrid.innerHTML = "";
 
 
-                item.className =
-                    "mini-component";
+matchingComponents
+    .slice(0, 100)
+    .forEach(
+        component => {
 
-
-                item.onclick =
-                    function() {
-
-                        showComponent(
-                            component.id
-                        );
-
-                    };
-
-
-                item.innerHTML = `
-
-                    <small>
-
-                        ${component.componentCategory}
-
-                    </small>
-
-
-                    <h4>
-
-                        ${component.name}
-
-                    </h4>
-
-
-                    <span>
-
-                        ${component.model}
-
-                    </span>
-
-                `;
-
-
-                componentGrid.appendChild(
-                    item
+            const item =
+                document.createElement(
+                    "div"
                 );
 
-            }
-        );
+
+            item.className =
+                "mini-component";
 
 
-    /* ======================================================
-       NO RESULTS
-    ====================================================== */
+            item.onclick =
+                function() {
 
-    if(
-        matchingVehicles.length === 0 &&
-        matchingComponents.length === 0
-    ) {
+                    showComponent(
+                        component.id
+                    );
 
-        modelsContainer.innerHTML = `
-
-            <div class="no-results">
-
-                No EV model or component found for:
-
-                <strong>
-                    ${query}
-                </strong>
-
-            </div>
-
-        `;
-
-    }
+                };
 
 
-    /* ======================================================
-       SCROLL TO RESULTS
-    ====================================================== */
+            item.innerHTML = `
+
+                <small>
+
+                    ${component.componentCategory}
+
+                </small>
+
+                <h4>
+
+                    ${component.name}
+
+                </h4>
+
+                <span>
+
+                    ${component.model}
+
+                </span>
+
+            `;
+
+
+            componentGrid.appendChild(
+                item
+            );
+
+        }
+    );
+
+
+/* ======================================================
+   MOVE TO MATCHING RESULTS
+====================================================== */
+
+if (
+    shouldScroll &&
+    matchingVehicles.length > 0
+) {
 
     document.getElementById(
         "modelsSection"
     ).scrollIntoView({
-        behavior:
-            "smooth"
+        behavior: "smooth",
+        block: "start"
     });
 
 }
+else if (
+    shouldScroll &&
+    matchingComponents.length > 0
+) {
+
+    document.getElementById(
+        "componentsSection"
+    ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* ======================================================
+   NO RESULTS
+====================================================== */
+
+if (
+    matchingVehicles.length === 0 &&
+    matchingComponents.length === 0
+) {
+
+    modelsContainer.innerHTML = `
+
+        <div class="no-results">
+
+            <h3>
+                🔎 No results found
+            </h3>
+
+            <p>
+                We could not find a matching EV model or component
+                for "<strong>${query}</strong>".
+            </p>
+
+            <p>
+                Can't find your EV part?
+            </p>
+
+            <a
+                href="https://forms.gle/odPJN2S6Px9oLq2A6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="request-part-btn">
+
+                <span style="color: red; font-weight: bold;">
+                    🔎 Fill the Request Missing Part
+                </span>
+
+            </a>
+
+        </div>
+
+    `;
+
+    componentGrid.innerHTML = "";
+
+    if (shouldScroll) {
+
+        document.getElementById(
+            "modelsSection"
+        ).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+    return;
+}
+
+}
+
+
+
+
+
+/* ==========================================================
+   REQUEST MISSING PART
+========================================================== */
+
+function openMissingPartRequest() {
+
+    window.open(
+        "https://forms.gle/iydPSxc4jPFewKEQ7",
+        "_blank"
+    );
+
+}
+
+
+/* ========================================================== 
+   SEARCH — ENTER KEY SUPPORT 
+========================================================== */ 
+
+document.addEventListener("DOMContentLoaded", function () { 
+
+    const searchInput = 
+        document.getElementById("searchInput"); 
+
+    if (searchInput) { 
+
+        searchInput.addEventListener(
+            "keydown",
+            function (event) { 
+
+                if (event.key === "Enter") { 
+
+                    event.preventDefault(); 
+
+                    performSearch(true); 
+
+                } 
+
+            }
+        ); 
+
+    } 
+
+});
+
+
+
+/* ==========================================================
+   SEARCH SUGGESTIONS
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const suggestionsBox =
+        document.getElementById("searchSuggestions");
+
+    if (!searchInput || !suggestionsBox) {
+        return;
+    }
+
+    searchInput.addEventListener("input", function () {
+
+        const query =
+            searchInput.value.trim().toLowerCase();
+
+        suggestionsBox.innerHTML = "";
+
+        if (query.length < 2) {
+            suggestionsBox.style.display = "none";
+            return;
+        }
+
+        const suggestions = [];
+
+        /* EV MODEL SUGGESTIONS */
+
+        vehicles.forEach(vehicle => {
+
+            if (
+                vehicle.model
+                    .toLowerCase()
+                    .includes(query)
+            ) {
+
+                suggestions.push({
+                    text:
+                        "🚗 " +
+                        vehicle.model,
+                    value:
+                        vehicle.model
+                });
+
+            }
+
+        });
+
+
+
+/* COMPONENT SUGGESTIONS */
+
+const suggestionAliases = {
+
+    "bms": {
+        text: "🔋 Battery Management System",
+        value: "BMS"
+    },
+
+    "obc": {
+        text: "⚡ On-Board Charger",
+        value: "OBC"
+    },
+
+    "mcu": {
+        text: "⚙️ Motor Controller",
+        value: "MCU"
+    },
+
+    "dc-dc": {
+        text: "🔌 DC-DC Converter",
+        value: "DC-DC"
+    },
+
+    "dcdc": {
+        text: "🔌 DC-DC Converter",
+        value: "DCDC"
+    },
+
+    "battery": {
+        text: "🔋 Traction Battery",
+        value: "battery"
+    },
+
+    "charger": {
+        text: "⚡ On-Board Charger",
+        value: "charger"
+    },
+
+    "motor": {
+        text: "⚙️ Traction Motor",
+        value: "motor"
+    },
+
+    "controller": {
+        text: "⚙️ Motor Controller",
+        value: "controller"
+    },
+
+    "brake": {
+        text: "🛑 Brake System",
+        value: "brake"
+    },
+
+    "suspension": {
+        text: "🔧 Suspension",
+        value: "suspension"
+    },
+
+    "thermal": {
+        text: "❄️ Thermal Management",
+        value: "thermal"
+    },
+
+    "cooling": {
+        text: "❄️ Thermal Management",
+        value: "cooling"
+    },
+
+    "harness": {
+        text: "🔌 Electrical Harness",
+        value: "harness"
+    },
+
+    "wiring": {
+        text: "🔌 Electrical Harness",
+        value: "wiring"
+    },
+
+    "fuse": {
+        text: "🛡️ Fuse & Protection",
+        value: "fuse"
+    },
+
+    "tyre": {
+        text: "🛞 Tyre",
+        value: "tyre"
+    },
+
+    "tire": {
+        text: "🛞 Tyre",
+        value: "tire"
+    },
+
+    "display": {
+        text: "📟 Display",
+        value: "display"
+    },
+
+    "dashboard": {
+        text: "📟 Display",
+        value: "dashboard"
+    }
+
+};
+
+
+/* SHOW ALIAS SUGGESTION */
+
+if (suggestionAliases[query]) {
+
+    suggestions.push(
+        suggestionAliases[query]
+    );
+
+}
+
+
+/* SHOW NORMAL COMPONENT SUGGESTIONS */
+
+components.forEach(component => {
+
+    if (
+        component.componentCategory
+            .toLowerCase()
+            .includes(query)
+        ||
+        component.name
+            .toLowerCase()
+            .includes(query)
+    ) {
+
+        suggestions.push({
+
+            text:
+                "🔋 " +
+                component.name,
+
+            value:
+                component.name
+
+        });
+
+    }
+
+});
+
+
+
+
+
+        /* REMOVE DUPLICATES */
+
+        const uniqueSuggestions = [];
+
+        suggestions.forEach(item => {
+
+            const alreadyExists =
+                uniqueSuggestions.some(
+                    existing =>
+                        existing.text === item.text
+                );
+
+            if (!alreadyExists) {
+
+                uniqueSuggestions.push(item);
+
+            }
+
+        });
+
+
+        /* SHOW MAXIMUM 8 SUGGESTIONS */
+
+        uniqueSuggestions
+            .slice(0, 8)
+            .forEach(item => {
+
+                const suggestion =
+                    document.createElement("div");
+
+                suggestion.className =
+                    "search-suggestion";
+
+                suggestion.textContent =
+                    item.text;
+
+                suggestion.addEventListener(
+                    "click",
+                    function () {
+
+                        searchInput.value =
+                            item.value;
+
+                        suggestionsBox.innerHTML = "";
+
+                        suggestionsBox.style.display =
+                            "none";
+
+                        performSearch(true);
+
+                    }
+                );
+
+                suggestionsBox.appendChild(
+                    suggestion
+                );
+
+            });
+
+
+        if (
+            uniqueSuggestions.length > 0
+        ) {
+
+            suggestionsBox.style.display =
+                "block";
+
+        } else {
+
+            suggestionsBox.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    /* CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !event.target.closest(".search-box")
+            ) {
+
+                suggestionsBox.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+});
+
+
 
 </script>
 

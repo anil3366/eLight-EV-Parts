@@ -6618,7 +6618,8 @@ if (
                 href="https://forms.gle/odPJN2S6Px9oLq2A6"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="request-part-btn">
+                class="request-part-btn"
+                onclick="trackMissingPartRequest()">
 
                 <span style="color: red; font-weight: bold;">
                     🔎 Fill the Request Missing Part
@@ -6648,7 +6649,13 @@ if (
 
 }
 
+function trackMissingPartRequest() {
 
+    if (typeof gtag === "function") {
+        gtag("event", "missing_part_request_click");
+    }
+
+}
 
 
 

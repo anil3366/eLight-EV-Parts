@@ -4209,8 +4209,9 @@ document.addEventListener(
         updateStatistics();
 
         renderModels();
-
+  renderRecentlyViewed();
         renderAllComponents("ALL");
+
 
     }
 );
@@ -4629,6 +4630,94 @@ function renderModelGroup(
 }
 
 
+
+/* ==========================================================
+   RECENTLY VIEWED
+========================================================== */
+
+function updateRecentlyViewed(vehicle) { 
+    if (!vehicle) return; 
+ 
+    let recent = 
+        JSON.parse( 
+            localStorage.getItem("recentlyViewedEVs") 
+        ) || []; 
+ 
+    recent = 
+        recent.filter( 
+            id => id !== vehicle.id 
+        ); 
+ 
+    recent.unshift(vehicle.id); 
+ 
+    recent = 
+        recent.slice(0, 5); 
+ 
+    localStorage.setItem( 
+        "recentlyViewedEVs", 
+        JSON.stringify(recent) 
+    ); 
+ 
+    renderRecentlyViewed(); 
+} 
+ 
+ 
+function renderRecentlyViewed() { 
+ 
+    const container = 
+        document.getElementById( 
+            "recentlyViewedContainer" 
+        ); 
+ 
+    if (!container) return; 
+ 
+    const recent = 
+        JSON.parse( 
+            localStorage.getItem("recentlyViewedEVs") 
+        ) || []; 
+ 
+    if (recent.length === 0) { 
+ 
+        container.innerHTML = ""; 
+ 
+        return; 
+    } 
+ 
+    const recentVehicles = 
+        recent 
+            .map( 
+                id => 
+                    vehicles.find( 
+                        vehicle => 
+                            vehicle.id === id 
+                    ) 
+            ) 
+            .filter(Boolean); 
+ 
+    container.innerHTML = ` 
+ 
+        <div class="recently-viewed-list"> 
+ 
+            ${recentVehicles.map(vehicle => ` 
+ 
+                <button 
+                    type="button" 
+                    class="recent-vehicle" 
+                    onclick="selectVehicle('${vehicle.id}')"> 
+ 
+                    🚗 ${vehicle.model} 
+ 
+                </button> 
+ 
+            `).join("")} 
+ 
+        </div> 
+ 
+    `; 
+}
+
+
+
 /* ==========================================================
    SELECT VEHICLE
 ========================================================== */
@@ -4667,7 +4756,9 @@ function selectVehicle(
        RECENTLY VIEWED — ADD VEHICLE
     ====================================================== */
 
+ if (typeof updateRecentlyViewed === "function") {
     updateRecentlyViewed(vehicle);
+}
 
 
     const vehicleComponents =
@@ -4976,9 +5067,15 @@ function filterAllComponents(
     );
 
 
-    renderAllComponents(
-        category
-    );
+   renderAllComponents(
+    category
+);
+
+if (typeof gtag === "function") {
+    gtag("event", "component_filter_view", {
+        filter_category: category
+    });
+}
 
 }
 
@@ -6561,13 +6658,16 @@ if (
 
 function openMissingPartRequest() {
 
+    // Google Analytics - track Request Missing Part click
+    if (typeof gtag === "function") {
+        gtag("event", "missing_part_request_click");
+    }
+
     window.open(
         "https://forms.gle/iydPSxc4jPFewKEQ7",
         "_blank"
     );
-
 }
-
 
 /* ========================================================== 
    SEARCH — ENTER KEY SUPPORT 

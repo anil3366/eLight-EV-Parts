@@ -245,39 +245,126 @@
            HERO
         ===================================================== */
 
-        .hero {
+.hero {
 
-            background:
+    position: relative;
 
-                linear-gradient(
-                    135deg,
-                    #385b24 0%,
-                    #597b2d 50%,
-                    #71852d 78%,
-                    #c8790b 100%
-                );
+    width: 100%;
 
-            color:
-                var(--white);
+    min-height: 620px;
 
-            padding:
-                78px 20px 75px;
+    overflow: hidden;
 
-        }
+    color: var(--white);
+
+    padding: 0;
+
+}
 
 
-        .hero-container {
+.hero-container {
 
-            max-width:
-                1100px;
+    position: relative;
 
-            margin:
-                auto;
+    z-index: 2;
 
-            text-align:
-                center;
+    width: 100%;
 
-        }
+    min-height: 620px;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 60px 20px;
+
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    color: #385b24;
+}
+
+.hero-content h2 {
+    color: #385b24 !important;
+    font-weight: 900 !important;
+}
+
+.hero-tagline {
+    color: #385b24 !important;
+    font-weight: 800 !important;
+}
+
+.hero-content p {
+    color: #385b24 !important;
+    font-weight: 700 !important;
+}
+
+.hero-badge {
+    color: #385b24 !important;
+    font-weight: 800 !important;
+}
+
+.hero-image {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+}
+
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(38,53,31,0.78) 0%,
+            rgba(38,53,31,0.45) 45%,
+            rgba(38,53,31,0.15) 100%
+        );
+
+    z-index: 1;
+
+}
 
 
         .hero-badge {
@@ -346,8 +433,8 @@
             max-width:
                 780px;
 
-            margin:
-                0 auto 30px;
+        margin:
+        0 0 30px;
 
             color:
                 #fffdf3;
@@ -358,32 +445,34 @@
         }
 
 
-        .search-box {
+       .search-box {
 
-            max-width:
-                760px;
+    width:
+        100%;
 
-            margin:
-                auto;
+    max-width:
+        850px;
 
-            display:
-                flex;
+    margin:
+        0;
 
-            background:
-                var(--white);
+    display:
+        flex;
 
-            padding:
-                7px;
+    background:
+        var(--white);
 
-            border-radius:
-                14px;
+    padding:
+        9px;
 
-            box-shadow:
-                0 10px 35px
-                rgba(38, 53, 31, 0.20);
+    border-radius:
+        16px;
 
-        }
+    box-shadow:
+        0 12px 40px
+        rgba(38, 53, 31, 0.25);
 
+}
 
         .search-box input {
 
@@ -396,12 +485,11 @@
             outline:
                 none;
 
-            padding:
-                15px 17px;
+    padding:
+        20px 20px;
 
-            font-size:
-                16px;
-
+    font-size:
+        18px;
             color:
                 var(--text);
 
@@ -422,9 +510,11 @@
             color:
                 var(--white);
 
-            padding:
-                0 23px;
+padding:
+    0 32px;
 
+font-size:
+    17px;
             border-radius:
                 10px;
 
@@ -445,95 +535,6 @@
         }
 
 
-        /* =====================================================
-           CARE MESSAGE
-        ===================================================== */
-
-        .care-section {
-
-            max-width:
-                1050px;
-
-            margin:
-                -30px auto 0;
-
-            padding:
-                0 20px;
-
-            position:
-                relative;
-
-            z-index:
-                5;
-
-        }
-
-
-        .care-card {
-
-            background:
-                var(--cream-light);
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius:
-                18px;
-
-            box-shadow:
-                0 10px 35px
-                rgba(56,91,36,0.12);
-
-            padding:
-                28px 30px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .care-icon {
-
-            font-size:
-                31px;
-
-            margin-bottom:
-                7px;
-
-        }
-
-
-        .care-card h2 {
-
-            color:
-                var(--dark-green);
-
-            font-size:
-                25px;
-
-            margin-bottom:
-                8px;
-
-        }
-
-
-        .care-card p {
-
-            max-width:
-                760px;
-
-            margin:
-                auto;
-
-            color:
-                var(--muted);
-
-            font-size:
-                14px;
-
-        }
 
 
         /* =====================================================
@@ -688,18 +689,274 @@
         }
 
 
+
+@media (max-width: 768px) {
+
+    .hero-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            30px;
+
+    }
+
+    .hero-content {
+
+        text-align:
+            center;
+
+    }
+
+    .hero-image img {
+
+        max-width:
+            380px;
+
+    }
+
+}
+
+
         /* =====================================================
            VEHICLE SELECTOR
         ===================================================== */
+/* ======================================================
+   FIND YOUR EV - COMPLETE FLOATING BACKGROUND
+====================================================== */
 
-        .vehicle-selector {
+.vehicle-selector {
+    position: relative;
 
-            margin-top:
-                20px;
+    padding: 100px 20px;
 
-        }
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: transparent;
+}
 
 
+/* ======================================================
+   FLOATING IMAGE - COVERS EVERYTHING
+====================================================== */
+
+.vehicle-selector::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -60px;
+    right: -60px;
+    bottom: -60px;
+    left: -60px;
+
+    z-index: 0;
+
+    background-image:
+        url("find-ev.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    animation:
+        floatingEV
+        14s
+        ease-in-out
+        infinite;
+}
+
+
+/* ======================================================
+   TRANSPARENT DARK OVERLAY
+====================================================== */
+
+.vehicle-selector::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 1;
+
+    background:
+        rgba(38, 53, 31, 0.42);
+}
+
+
+/* ======================================================
+   FLOATING IMAGE ANIMATION
+====================================================== */
+
+@keyframes floatingEV {
+
+    0% {
+        transform:
+            scale(1.08)
+            translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform:
+            scale(1.11)
+            translate3d(15px, -10px, 0);
+    }
+
+    50% {
+        transform:
+            scale(1.13)
+            translate3d(-12px, 12px, 0);
+    }
+
+    75% {
+        transform:
+            scale(1.11)
+            translate3d(10px, 6px, 0);
+    }
+
+    100% {
+        transform:
+            scale(1.08)
+            translate3d(0, 0, 0);
+    }
+}
+
+
+/* ======================================================
+   CONTENT ABOVE IMAGE
+====================================================== */
+
+.vehicle-selector .section-heading {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.vehicle-selector .category-grid {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ======================================================
+   HEADING
+====================================================== */
+
+.vehicle-selector .section-heading h2 {
+
+    color: #fffdf3;
+}
+
+
+.vehicle-selector .section-heading p {
+
+    color: #f8f3dc;
+}
+
+
+/* ======================================================
+   CATEGORY CARDS
+====================================================== */
+
+.vehicle-selector .category-card {
+
+    background:
+        rgba(255, 253, 243, 0.94);
+
+    backdrop-filter:
+        blur(5px);
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.20);
+}
+/* ======================================================
+   CATEGORY CARDS
+====================================================== */
+
+.ev-finder-bg .category-card {
+
+    background:
+        rgba(255, 253, 243, 0.94);
+
+    backdrop-filter: blur(5px);
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.20);
+}
+
+.ev-finder-bg .section-heading {
+    position: relative;
+    z-index: 2;
+}
+
+.ev-finder-bg .category-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.ev-finder-bg .section-heading h2 {
+    color: #fffdf3;
+}
+
+.ev-finder-bg .section-heading p {
+    color: #f8f3dc;
+}
+
+.ev-finder-bg .category-card {
+    background: rgba(255, 253, 243, 0.94);
+
+    backdrop-filter: blur(5px);
+
+    border: 2px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+/* ======================================================
+   CATEGORY CARDS
+====================================================== */
+
+.ev-finder-bg .category-card {
+
+    background: rgba(255, 253, 243, 0.94);
+
+    backdrop-filter: blur(5px);
+
+    border: 2px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+
+	
         .category-grid {
 
             display:
@@ -843,6 +1100,247 @@
                 70px;
 
         }
+
+	/* ======================================================
+   EV MODELS - FULL MOVING BACKGROUND
+====================================================== */
+
+.ev-model-bg {
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background: transparent;
+
+    padding: 70px 20px 100px;
+
+}
+
+
+.ev-model-bg::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -60px;
+    right: -60px;
+    bottom: -60px;
+    left: -60px;
+
+    z-index: -2;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    animation:
+        floatingEVModels
+        14s
+        ease-in-out
+        infinite;
+
+}
+
+/* ======================================================
+   2W / 3W / 4W DIFFERENT BACKGROUND IMAGES
+====================================================== */
+
+.ev-model-bg.ev2-bg::before {
+
+    background-image:
+        url("ev2.png");
+
+}
+
+
+.ev-model-bg.ev3-bg::before {
+
+    background-image:
+        url("ev3.png");
+
+}
+
+
+.ev-model-bg.ev4-bg::before {
+
+    background-image:
+        url("ev4.png");
+
+}
+
+/* ======================================================
+   DARK TRANSPARENT OVERLAY
+====================================================== */
+
+.ev-model-bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1;
+
+    background:
+        rgba(38, 53, 31, 0.48);
+
+}
+
+
+/* ======================================================
+   FLOATING IMAGE ANIMATION
+====================================================== */
+
+@keyframes floatingEVModels {
+
+    0% {
+
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+
+    }
+
+    25% {
+
+        transform:
+            scale(1.09)
+            translate3d(15px, -10px, 0);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12)
+            translate3d(-12px, 12px, 0);
+
+    }
+
+    75% {
+
+        transform:
+            scale(1.09)
+            translate3d(10px, 6px, 0);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+
+    }
+
+}
+
+
+/* ======================================================
+   MODEL CONTENT ABOVE IMAGE
+====================================================== */
+
+.ev-model-bg .section-heading {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.ev-model-bg #modelsContainer {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* ======================================================
+   MODEL SECTION TEXT
+====================================================== */
+
+.ev-model-bg .section-heading h2 {
+
+    color:
+        #fffdf3;
+
+}
+
+
+.ev-model-bg .section-heading p {
+
+    color:
+        #f8f3dc;
+
+}
+
+
+/* ======================================================
+   CATEGORY TITLE
+====================================================== */
+
+.ev-model-bg .category-title {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.ev-model-bg .category-title h3 {
+
+    color:
+        #fffdf3;
+
+}
+
+
+.ev-model-bg .category-title span {
+
+    color:
+        #26351f;
+
+    background:
+        #f8f3dc;
+
+}
+
+
+/* ======================================================
+   MODEL CARDS
+====================================================== */
+
+.ev-model-bg .model-card {
+
+    background:
+        rgba(255, 253, 243, 0.94);
+
+    backdrop-filter:
+        blur(5px);
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.20);
+
+}
 
 
         .category-title {
@@ -1146,6 +1644,161 @@
 
         }
 
+
+
+/* ==========================================================
+   MY EV / COMPONENTS - MOVING BACKGROUND
+========================================================== */
+
+#componentsSection {
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background: transparent;
+
+}
+
+
+/* ==========================================================
+   MY EV BACKGROUND IMAGE
+========================================================== */
+
+#componentsSection::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -70px;
+    right: -70px;
+    bottom: -70px;
+    left: -70px;
+
+    z-index: -2;
+
+    background-image:
+        url("my-ev.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    animation:
+        floatingMyEV
+        15s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* ==========================================================
+   STRONGER BACKGROUND OVERLAY
+========================================================== */
+
+#componentsSection::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1;
+
+    background:
+        rgba(38, 53, 31, 0.58);
+
+}
+
+
+/* ==========================================================
+   FLOATING BACKGROUND ANIMATION
+========================================================== */
+
+@keyframes floatingMyEV {
+
+    0% {
+
+        transform:
+            scale(1.07)
+            translate3d(0, 0, 0);
+
+    }
+
+    25% {
+
+        transform:
+            scale(1.10)
+            translate3d(14px, -9px, 0);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.13)
+            translate3d(-12px, 11px, 0);
+
+    }
+
+    75% {
+
+        transform:
+            scale(1.10)
+            translate3d(9px, 6px, 0);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.07)
+            translate3d(0, 0, 0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   KEEP ALL MY EV CONTENT ABOVE IMAGE
+========================================================== */
+
+#componentsSection > * {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* ==========================================================
+   MY EV HEADING
+========================================================== */
+
+#componentsSection .section-heading h2 {
+
+    color: #fffdf3;
+
+}
+
+
+#componentsSection .section-heading p {
+
+    color: #f8f3dc;
+
+}
 
         /* =====================================================
            COMPONENT ROWS
@@ -1605,6 +2258,219 @@
 
         }
 
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-section {
+
+    margin-top:
+        75px;
+
+}
+
+
+/* =====================================================
+   ABOUT - MOVING EV TECHNOLOGY BACKGROUND
+===================================================== */
+
+.about-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background: transparent;
+
+    padding:
+        40px 20px 50px;
+
+}
+
+
+/* =====================================================
+   ABOUT BACKGROUND IMAGE
+===================================================== */
+
+.about-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -60px;
+    right: -60px;
+    bottom: -60px;
+    left: -60px;
+
+    z-index: -2;
+
+    background-image:
+        url("about-ev.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    animation:
+        floatingAboutEV
+        16s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   SOFT GREEN OVERLAY
+===================================================== */
+
+.about-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1;
+
+    background:
+        rgba(38, 53, 31, 0.42);
+
+}
+
+
+/* =====================================================
+   FLOATING ABOUT BACKGROUND
+===================================================== */
+
+@keyframes floatingAboutEV {
+
+    0% {
+
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+
+    }
+
+    25% {
+
+        transform:
+            scale(1.09)
+            translate3d(12px, -8px, 0);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12)
+            translate3d(-10px, 10px, 0);
+
+    }
+
+    75% {
+
+        transform:
+            scale(1.09)
+            translate3d(8px, 5px, 0);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+
+    }
+
+}
+
+
+/* =====================================================
+   KEEP ABOUT CONTENT ABOVE BACKGROUND
+===================================================== */
+
+.about-section > * {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   ABOUT CARD
+===================================================== */
+
+.about-card {
+
+    background:
+        rgba(255, 253, 243, 0.94);
+
+    backdrop-filter:
+        blur(5px);
+
+    border-radius:
+        17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.65);
+
+    padding:
+        30px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* =====================================================
+   ABOUT CARD HEADING
+===================================================== */
+
+.about-card h3 {
+
+    color:
+        var(--dark-green);
+
+    margin-bottom:
+        10px;
+
+}
+
+
+/* =====================================================
+   ABOUT CARD TEXT
+===================================================== */
+
+.about-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        12px;
+
+}
 
         /* =====================================================
            MODAL
@@ -2312,26 +3178,30 @@
    SEARCH SUGGESTIONS
 ========================================================== */
 .search-box {
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    vertical-align: top;
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    align-items: center;
+    gap: 10px;
+position: relative;
 }
 
 .search-box input {
-    width: 100%;
+    flex: 1;
+    width: auto;
     box-sizing: border-box;
     padding: 14px 16px;
     font-size: 16px;
 }
 
 .search-box + button {
-    padding: 14px 22px;
+    flex: 0 0 120px;
+    width: 120px;
+    margin: 0;
+    padding: 14px 10px;
     font-size: 16px;
-    margin-left: 8px;
-}
-
-.search-suggestions {
+    font-weight: 700;
+}.search-suggestions {
     position: absolute;
     top: 100%;
     left: 0;
@@ -2364,15 +3234,168 @@
    RECENTLY VIEWED - ATTRACTIVE DESIGN
 ========================================================== */
 
-.recently-viewed-section {
-    max-width: 1200px;
-    margin: 35px auto 30px;
-    padding: 24px 26px;
-    background: var(--cream-light);
-    border: 1px solid var(--cream-dark);
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(56, 91, 36, 0.08);
+.recently-viewed-section { 
+    max-width: 1200px; 
+    margin: 35px auto 30px; 
+    padding: 24px 26px; 
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: transparent;
+
+    border: 1px solid var(--cream-dark); 
+    border-radius: 18px; 
+
+    box-shadow: 0 5px 18px rgba(56, 91, 36, 0.08); 
 }
+
+
+.recently-viewed-section { 
+    max-width: 1200px; 
+    margin: 35px auto 30px; 
+    padding: 24px 26px; 
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: transparent;
+
+    border: 1px solid var(--cream-dark); 
+    border-radius: 18px; 
+
+    box-shadow: 0 5px 18px rgba(56, 91, 36, 0.08); 
+}
+
+
+/* ==========================================================
+   RECENTLY VIEWED - MOVING BACKGROUND IMAGE
+========================================================== */
+
+.recently-viewed-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -60px;
+    right: -60px;
+    bottom: -60px;
+    left: -60px;
+
+    z-index: -2;
+
+    background-image:
+        url("recently-viewed.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    animation:
+        floatingRecentlyViewed
+        14s
+        ease-in-out
+        infinite;
+}
+
+
+/* ==========================================================
+   BACKGROUND OVERLAY
+========================================================== */
+
+.recently-viewed-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1;
+
+    background:
+        rgba(38, 53, 31, 0.42);
+}
+
+
+/* ==========================================================
+   FLOATING BACKGROUND ANIMATION
+========================================================== */
+
+@keyframes floatingRecentlyViewed {
+
+    0% {
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform:
+            scale(1.09)
+            translate3d(15px, -10px, 0);
+    }
+
+    50% {
+        transform:
+            scale(1.12)
+            translate3d(-12px, 12px, 0);
+    }
+
+    75% {
+        transform:
+            scale(1.09)
+            translate3d(10px, 6px, 0);
+    }
+
+    100% {
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+    }
+
+}
+
+
+/* ==========================================================
+   KEEP RECENTLY VIEWED CONTENT ABOVE IMAGE
+========================================================== */
+
+.recently-viewed-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ==========================================================
+   HEADING / DESCRIPTION
+========================================================== */
+
+.recently-viewed-section h2 {
+    margin: 0 0 6px;
+    color: #fffdf3;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.recently-viewed-section p {
+    margin: 0 0 20px;
+    color: #f8f3dc;
+    font-size: 14px;
+}
+
+
+
+
+
 
 .recently-viewed-section h2 {
     margin: 0 0 6px;
@@ -2393,13 +3416,17 @@
     gap: 14px;
 }
 
+
+
+
 .recent-vehicle {
     width: 100%;
     min-height: 58px;
     padding: 14px 16px;
     border: 1px solid #d9dfc8;
     border-radius: 12px;
-    background: #ffffff;
+ background: rgba(255, 253, 243, 0.94);
+backdrop-filter: blur(5px);
     color: var(--text);
     cursor: pointer;
     font-size: 15px;
@@ -2443,6 +3470,8 @@
     }
 }
 
+
+
     </style>
 
 </head>
@@ -2481,51 +3510,25 @@
         </a>
 
 
-        <nav>
+       <nav>
 
-            <button class="active"
-                    onclick="goHome()">
+  <nav>
 
-                Home
+    <button class="active" onclick="goHome()">
+        Home
+    </button>
 
-            </button>
+    <button
+        onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+        Find Your EV
+    </button>
 
-
-            <button onclick="showCategory('2W')">
-
-                2-Wheeler
-
-            </button>
-
-
-            <button onclick="showCategory('3W')">
-
-                3-Wheeler
-
-            </button>
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        About
+    </button>
+</nav>
 
 
-            <button onclick="showCategory('4W')">
-
-                4-Wheeler
-
-            </button>
-
-
-            <button onclick="showAllComponents()">
-
-                Components
-
-            </button>
-
-
-            <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-
-                About
-
-            </button>
-
-        </nav>
 
     </div>
 
@@ -2539,161 +3542,66 @@
 <section class="hero"
          id="home">
 
-    <div class="hero-container">
+<div class="hero-container">
+
+    <div class="hero-content">
 
         <div class="hero-badge">
-
-            ❤️ eLight EV Parts
-
+            🚗⚡ EV Parts Information Platform
         </div>
 
-
         <h2>
-
-            Your EV Deserves Extra Care.
-
+            eLight EV Parts
         </h2>
-
 
         <div class="hero-tagline">
-
-            Find the right spare parts for your EV —
-            with care, clarity and confidence.
-
+            Your EV Deserves Extra Care
         </div>
-
 
         <p>
-
-            Explore EV models, components and technical information
-            for 2-wheelers, 3-wheelers and 4-wheelers.
-
+            Find information about EV models and components
+            in one place.
         </p>
 
+        <div class="search-box">
+<input
+    type="text"
+    id="searchInput"
+    placeholder="Search your EV model or component..."
+    autocomplete="off"
+    onkeydown="handleSearchKeydown(event)"
+    oninput="showSearchSuggestions()">
 
-<div class="search-box">
 
-    <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Search your EV model or component...">
-
-    <div id="searchSuggestions" class="search-suggestions"></div>
-
+<div id="searchSuggestions"
+     class="search-suggestions">
 </div>
 
-<button 
-    type="button"
-    onclick="performSearch(true)">
-    🔍 Search
-</button>
-<div id="searchMessage"></div>
+
+            <button
+                type="button"
+                onclick="performSearch(true)">
+                🔎 Search
+            </button>
 
         </div>
 
     </div>
 
-</section>
 
+    <div class="hero-image">
 
-<!-- ==========================================================
-     CARE MESSAGE
-========================================================== -->
-
-<section class="care-section">
-
-    <div class="care-card">
-
-        <div class="care-icon">
-
-            ❤️
-
-        </div>
-
-
-        <h2>
-
-            Care for Your EV Like Your Own
-
-        </h2>
-
-
-        <p>
-
-            Your EV is more than a vehicle.
-            It is something you depend on every day.
-            We help you identify the right parts and make
-            better maintenance decisions.
-
-        </p>
+        <img
+            src="ev-hero.png"
+            alt="Electric vehicle and EV components">
 
     </div>
 
-</section>
 
-
-<!-- ==========================================================
-     STATS
-========================================================== -->
-
-<div class="stats">
-
-    <div class="stats-grid">
-
-        <div class="stat">
-
-            <strong id="modelCount">
-                0+
-            </strong>
-
-            <span>
-                EV Model Entries
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong id="componentCount">
-                0+
-            </strong>
-
-            <span>
-                Component Associations
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                3
-            </strong>
-
-            <span>
-                Vehicle Categories
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                Stage 1
-            </strong>
-
-            <span>
-                Information Platform
-            </span>
-
-        </div>
-
-    </div>
 
 </div>
+</section>
+
 
 
 <!-- ==========================================================
@@ -2707,21 +3615,20 @@
          SELECT VEHICLE
     ====================================================== -->
 
-    <section id="categories"
-             class="vehicle-selector">
+<section id="categories" class="vehicle-selector ev-finder-bg">
 
         <div class="section-heading">
 
             <h2>
 
-                🚗 Select Your EV
+                🚗 Find your EV
 
             </h2>
 
 
             <p>
 
-                Choose your vehicle category to find your EV
+                Choose your vehicle category to Find Your EV
                 and explore its associated components.
 
             </p>
@@ -2841,31 +3748,17 @@
 
     </section>
 
-
-
-
-<section class="recently-viewed-section">
-
-    <h2>⭐ Recently Viewed</h2>
-
-    <p>Your recently viewed EV models</p>
-
-    <div id="recentlyViewedContainer"></div>
-
-</section>
-
     <!-- ======================================================
          EV MODELS
     ====================================================== -->
 
-    <section class="models-section"
-             id="modelsSection">
-
+<section class="models-section ev-model-bg"
+         id="modelsSection">
         <div class="section-heading">
 
             <h2>
 
-                Select Your EV Model
+               Find Your EV Model
 
             </h2>
 
@@ -2883,6 +3776,21 @@
         <div id="modelsContainer"></div>
 
     </section>
+
+
+
+
+<section class="recently-viewed-section">
+
+    <h2>⭐ Recently Viewed</h2>
+
+    <p>Your recently viewed EV models</p>
+
+    <div id="recentlyViewedContainer"></div>
+
+</section>
+
+
 
 
     <!-- ======================================================
@@ -2921,6 +3829,8 @@
 
         </div>
 
+
+
     </section>
 
 
@@ -2928,8 +3838,9 @@
          ALL COMPONENTS
     ====================================================== -->
 
-    <section class="all-components"
-             id="allComponentsSection">
+<section class="all-components"
+         id="allComponentsSection"
+         style="display:none;">
 
         <div class="section-heading">
 
@@ -3118,27 +4029,20 @@
 
             <p>
 
-                eLight EV Parts is being developed as an
-                information and catalogue platform for
-                electric vehicle models, spare parts and components.
+                eLight EV Parts is an EV information and catalogue platform being developed to help users explore electric vehicle models, spare parts, and components in one place.
+            </p>
+
+
+            <p>
+
+                Stage 1 focuses on organizing EV model and component information for two-wheelers, three-wheelers, and four-wheelers, making it easier for users to find relevant component information for their EV.
 
             </p>
 
 
             <p>
 
-                Stage 1 focuses on organizing EV model and
-                component information in a searchable platform
-                covering two-wheelers, three-wheelers and four-wheelers.
-
-            </p>
-
-
-            <p>
-
-                Future stages can introduce seller registration,
-                customer enquiries, verified listings and
-                commercial services.
+                Future stages may introduce seller registration, customer enquiries, verified listings, and commercial services, creating a more connected platform for EV owners, parts sellers, and service providers.
 
             </p>
 
@@ -4296,22 +5200,20 @@ let currentPDFComponent = null;
 
 history.scrollRestoration = "manual";
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+document.addEventListener("DOMContentLoaded", function() {
+    window.scrollTo(0, 0);
 
-        // Always start at the top when the page loads
-        window.scrollTo(0, 0);
+    updateStatistics();
 
-        updateStatistics();
+    // Keep EV models hidden until the user selects a category
+    document.getElementById("modelsContainer").innerHTML = "";
 
-        renderModels();
-  renderRecentlyViewed();
-        renderAllComponents("ALL");
+    // Keep the general Component Catalogue empty on page load
+    document.getElementById("allComponentsGrid").innerHTML = "";
 
+    renderRecentlyViewed();
+});
 
-    }
-);
 
 /* ==========================================================
    STATISTICS
@@ -4319,64 +5221,28 @@ document.addEventListener(
 
 function updateStatistics() {
 
-    const count2W =
-        vehicles.filter(
-            vehicle =>
-                vehicle.category ===
-                "2W"
-        ).length;
+    const count2W = vehicles.filter(
+        vehicle => vehicle.category === "2W"
+    ).length;
+
+    const count3W = vehicles.filter(
+        vehicle => vehicle.category === "3W"
+    ).length;
+
+    const count4W = vehicles.filter(
+        vehicle => vehicle.category === "4W"
+    ).length;
 
 
-    const count3W =
-        vehicles.filter(
-            vehicle =>
-                vehicle.category ===
-                "3W"
-        ).length;
+    document.getElementById("count2W").textContent =
+        count2W + " models";
 
+    document.getElementById("count3W").textContent =
+        count3W + " models";
 
-    const count4W =
-        vehicles.filter(
-            vehicle =>
-                vehicle.category ===
-                "4W"
-        ).length;
-
-
-    document.getElementById(
-        "modelCount"
-    ).textContent =
-        vehicles.length + "+";
-
-
-    document.getElementById(
-        "componentCount"
-    ).textContent =
-        components.length + "+";
-
-
-    document.getElementById(
-        "count2W"
-    ).textContent =
-        count2W +
-        " model entries";
-
-
-    document.getElementById(
-        "count3W"
-    ).textContent =
-        count3W +
-        " model entries";
-
-
-    document.getElementById(
-        "count4W"
-    ).textContent =
-        count4W +
-        " model entries";
-
+    document.getElementById("count4W").textContent =
+        count4W + " models";
 }
-
 
 /* ==========================================================
    HOME
@@ -4388,22 +5254,28 @@ function goHome() {
         "searchInput"
     ).value = "";
 
+    document.getElementById(
+        "modelsContainer"
+    ).innerHTML = "";
 
-    renderModels();
-
+    document.getElementById(
+        "selectedVehicleContainer"
+    ).innerHTML = `
+        <div class="no-results">
+            Select your EV model above to view
+            "My EV" and its components.
+        </div>
+    `;
 
     document.getElementById(
         "home"
     ).scrollIntoView({
-        behavior:
-            "smooth"
+        behavior: "smooth"
     });
-
 
     setActiveNav(
         "Home"
     );
-
 }
 
 
@@ -4442,42 +5314,95 @@ function setActiveNav(
 }
 
 
-/* ==========================================================
-   SHOW CATEGORY
-========================================================== */
-
 function showCategory(category) {
 
-    // Google Analytics
     if (typeof gtag === "function") {
         gtag('event', 'vehicle_category_view', {
             vehicle_category: category
         });
     }
 
-    // Get vehicle data
+
+    /* ==================================================
+       CHANGE EV MODELS BACKGROUND IMAGE
+       2W → ev2.png
+       3W → ev3.png
+       4W → ev4.png
+    ================================================== */
+
+    const modelsSection =
+        document.getElementById("modelsSection");
+
+    if (modelsSection) {
+
+        /* Remove previous background */
+        modelsSection.classList.remove(
+            "ev2-bg",
+            "ev3-bg",
+            "ev4-bg"
+        );
+
+
+        /* Add correct background */
+        if (category === "2W") {
+
+            modelsSection.classList.add("ev2-bg");
+
+        }
+
+        else if (category === "3W") {
+
+            modelsSection.classList.add("ev3-bg");
+
+        }
+
+        else if (category === "4W") {
+
+            modelsSection.classList.add("ev4-bg");
+
+        }
+
+    }
+
+
+    /* ==================================================
+       FILTER EV MODELS
+    ================================================== */
+
     const filtered = vehicles.filter(vehicle => {
         return vehicle.category === category;
     });
 
-    // Render vehicles for selected category
+
+    /* ==================================================
+       SHOW THE FOUR MODELS
+    ================================================== */
+
     renderModelGroup(
         category,
         filtered,
         true
     );
 
-    // Move to vehicle/model section
-    const modelsSection = document.getElementById("modelsSection");
+
+    /* ==================================================
+       SCROLL TO EV MODELS
+    ================================================== */
 
     if (modelsSection) {
+
         modelsSection.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+
     }
 
-    // Set active navigation
+
+    /* ==================================================
+       UPDATE ACTIVE NAVIGATION
+    ================================================== */
+
     setActiveNav(
         category === "2W"
             ? "2-Wheeler"
@@ -4485,7 +5410,9 @@ function showCategory(category) {
                 ? "3-Wheeler"
                 : "4-Wheeler"
     );
+
 }
+
 /* ==========================================================
    RENDER MODELS
 ========================================================== */
@@ -4592,6 +5519,10 @@ function renderModelGroup(
 
     }
 
+
+if(category === "SEARCH") {
+    title = "🔍 Matching EV Models";
+}
 
     const section =
         document.createElement(
@@ -4847,17 +5778,14 @@ function selectVehicle(
         return;
 
     }
-updateRecentlyViewed(vehicle);
+
 
 
     /* ======================================================
        RECENTLY VIEWED — ADD VEHICLE
     ====================================================== */
 
- if (typeof updateRecentlyViewed === "function") {
-    updateRecentlyViewed(vehicle);
-}
-
+updateRecentlyViewed(vehicle);
 
     const vehicleComponents =
         components.filter(
@@ -6139,17 +7067,22 @@ function performSearch(shouldScroll = false) {
        EMPTY SEARCH
     ====================================================== */
 
-    if (query === "") {
+if (query === "") {
 
-        renderModels();
+    document.getElementById(
+        "modelsContainer"
+    ).innerHTML = "";
 
-        renderAllComponents("ALL");
+    document.getElementById(
+        "allComponentsGrid"
+    ).innerHTML = "";
 
-        return;
+    document.getElementById(
+        "searchMessage"
+    ).textContent = "";
 
-    }
-
-
+    return;
+}
 /* ======================================================
    SEARCH VEHICLES
 ====================================================== */
@@ -6181,6 +7114,9 @@ const matchingVehicles =
         return searchableText.includes(query);
 
     });
+
+
+
 
 
 /* ======================================================
@@ -6432,6 +7368,24 @@ const matchingComponents =
 
     });
 
+/* ======================================================
+   SEARCH COMPONENTS → FIND THEIR CORRESPONDING EVs
+====================================================== */
+
+const componentVehicleIds = [
+    ...new Set(
+        matchingComponents.map(
+            component => component.vehicleId
+        )
+    )
+];
+
+const componentMatchingVehicles =
+    vehicles.filter(vehicle =>
+        componentVehicleIds.includes(vehicle.id)
+    );
+
+
 
 /* ======================================================
    GOOGLE ANALYTICS — RESULT STATUS
@@ -6469,125 +7423,177 @@ if (typeof gtag === "function") {
 
 }
 
-    /* ======================================================
-       DISPLAY MODEL RESULTS
-    ====================================================== */
+/* ======================================================
+   DISPLAY MODEL RESULTS
+   EV-FIRST SEARCH
+====================================================== */
 
-    const modelsContainer =
-        document.getElementById(
-            "modelsContainer"
-        );
+const modelsContainer =
+    document.getElementById(
+        "modelsContainer"
+    );
 
-    modelsContainer.innerHTML = "";
-
-
-    if (matchingVehicles.length > 0) {
-
-        const heading =
-            document.createElement("div");
-
-        heading.className =
-            "category-title";
-
-        heading.innerHTML = `
-
-            <h3>
-                🔎 Matching EV Models
-            </h3>
-
-            <span>
-                ${matchingVehicles.length}
-                results
-            </span>
-
-        `;
-
-        modelsContainer.appendChild(
-            heading
-        );
-
-
-        const grid =
-            document.createElement("div");
-
-        grid.className =
-            "model-grid";
-
-
-        matchingVehicles.forEach(
-            vehicle => {
-
-                const card =
-                    document.createElement("div");
-
-                card.className =
-                    "model-card";
-
-
-                card.onclick =
-                    function() {
-
-                        selectVehicle(
-                            vehicle.id
-                        );
-
-                    };
-
-
-                card.innerHTML = `
-
-                    <span class="vehicle-type">
-
-                        ${
-                            vehicle.category === "2W"
-                                ? "2-WHEELER"
-                                : vehicle.category === "3W"
-                                    ? "3-WHEELER"
-                                    : "4-WHEELER"
-                        }
-
-                    </span>
-
-                    <h4>
-                        ${vehicle.model}
-                    </h4>
-
-                    <p>
-
-                        ${vehicle.variant}
-
-                        <br>
-
-                        ${vehicle.battery}
-
-                    </p>
-
-                    <span class="explore">
-
-                        ❤️ Take Extra Care of My EV →
-
-                    </span>
-
-                `;
-
-
-                grid.appendChild(
-                    card
-                );
-
-            }
-        );
-
-
-        modelsContainer.appendChild(
-            grid
-        );
-
-    }
+modelsContainer.innerHTML = "";
 
 
 /* ======================================================
-   DISPLAY COMPONENT RESULTS
+   COMBINE DIRECT EV MATCHES + COMPONENT EV MATCHES
+====================================================== */
+
+const searchVehicles = [
+    ...matchingVehicles,
+    ...componentMatchingVehicles
+];
+
+
+const uniqueSearchVehicles = [
+    ...new Map(
+        searchVehicles.map(vehicle => [
+            vehicle.id,
+            vehicle
+        ])
+    ).values()
+];
+
+
+/* ======================================================
+   DISPLAY MATCHING EV MODELS
+====================================================== */
+
+if (uniqueSearchVehicles.length > 0) {
+
+    const heading =
+        document.createElement("div");
+
+    heading.className =
+        "category-title";
+
+    heading.innerHTML = `
+
+        <h3>
+            🔎 Matching EV Models
+        </h3>
+
+        <span>
+            ${uniqueSearchVehicles.length}
+            EV models
+        </span>
+
+    `;
+
+    modelsContainer.appendChild(
+        heading
+    );
+
+
+    const grid =
+        document.createElement("div");
+
+    grid.className =
+        "model-grid";
+
+
+    uniqueSearchVehicles.forEach(
+        vehicle => {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "model-card";
+
+
+            card.onclick =
+                function() {
+
+                    selectVehicle(
+                        vehicle.id
+                    );
+
+                };
+
+
+            const matchedParts =
+                matchingComponents.filter(
+                    component =>
+                        component.vehicleId ===
+                        vehicle.id
+                );
+
+
+            let resultText =
+                vehicle.variant;
+
+
+            if (
+                matchedParts.length > 0
+            ) {
+
+                resultText +=
+                    "<br>🔧 " +
+                    matchedParts.length +
+                    " matching component" +
+                    (
+                        matchedParts.length > 1
+                            ? "s"
+                            : ""
+                    );
+
+            }
+
+
+            card.innerHTML = `
+
+                <span class="vehicle-type">
+
+                    ${
+                        vehicle.category === "2W"
+                            ? "2-WHEELER"
+                            : vehicle.category === "3W"
+                                ? "3-WHEELER"
+                                : "4-WHEELER"
+                    }
+
+                </span>
+
+                <h4>
+                    ${vehicle.model}
+                </h4>
+
+                <p>
+
+                    ${resultText}
+
+                </p>
+
+                <span class="explore">
+
+                    ❤️ Take Extra Care of My EV →
+
+                </span>
+
+            `;
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    modelsContainer.appendChild(
+        grid
+    );
+
+}
+
+
+
+/* ======================================================
+   COMPONENT RESULTS
+   COMPONENTS ARE SHOWN INSIDE THE SELECTED EV
 ====================================================== */
 
 const componentGrid =
@@ -6595,63 +7601,13 @@ const componentGrid =
         "allComponentsGrid"
     );
 
-componentGrid.innerHTML = "";
+if (componentGrid) {
+
+    componentGrid.innerHTML = "";
+
+}
 
 
-matchingComponents
-    .slice(0, 100)
-    .forEach(
-        component => {
-
-            const item =
-                document.createElement(
-                    "div"
-                );
-
-
-            item.className =
-                "mini-component";
-
-
-            item.onclick =
-                function() {
-
-                    showComponent(
-                        component.id
-                    );
-
-                };
-
-
-            item.innerHTML = `
-
-                <small>
-
-                    ${component.componentCategory}
-
-                </small>
-
-                <h4>
-
-                    ${component.name}
-
-                </h4>
-
-                <span>
-
-                    ${component.model}
-
-                </span>
-
-            `;
-
-
-            componentGrid.appendChild(
-                item
-            );
-
-        }
-    );
 
 
 /* ======================================================
@@ -6660,7 +7616,7 @@ matchingComponents
 
 if (
     shouldScroll &&
-    matchingVehicles.length > 0
+    uniqueSearchVehicles.length > 0
 ) {
 
     document.getElementById(
@@ -6671,20 +7627,6 @@ if (
     });
 
 }
-else if (
-    shouldScroll &&
-    matchingComponents.length > 0
-) {
-
-    document.getElementById(
-        "componentsSection"
-    ).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
 
 /* ======================================================
    NO RESULTS

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anil3366.github.io/eLight-EV-Parts/sitemap.xml

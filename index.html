@@ -7404,16 +7404,21 @@ const componentMatchingVehicles =
 
 
 
+
 /* ======================================================
-   GOOGLE ANALYTICS — RESULT STATUS
+   GOOGLE ANALYTICS — SEARCH RESULTS
 ====================================================== */
 
 const totalSearchResults =
     matchingVehicles.length +
     matchingComponents.length;
 
-if (typeof gtag === "function") {
+if (
+    typeof gtag === "function" &&
+    query.length >= 2
+) {
 
+    // Record the search outcome
     if (totalSearchResults > 0) {
 
         gtag("event", "part_found", {
@@ -7424,7 +7429,21 @@ if (typeof gtag === "function") {
                 matchingVehicles.length,
 
             component_results:
-                matchingComponents.length
+                matchingComponents.length,
+
+            vehicle_model:
+                matchingComponents.length > 0
+                    ? matchingComponents[0].model
+                    : (
+                        matchingVehicles.length > 0
+                            ? matchingVehicles[0].model
+                            : "Not available"
+                    ),
+
+            part_name:
+                matchingComponents.length > 0
+                    ? matchingComponents[0].name
+                    : "Not available"
 
         });
 
@@ -7439,7 +7458,6 @@ if (typeof gtag === "function") {
     }
 
 }
-
 /* ======================================================
    DISPLAY MODEL RESULTS
    EV-FIRST SEARCH

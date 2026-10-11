@@ -3484,12 +3484,132 @@ backdrop-filter: blur(5px);
 
 
 
+
+
+/* LARGE EV PART ENQUIRY BOX */
+
+
+.footer-enquiry {
+    width: 100%;
+    max-width: 450px;
+    min-height: 200px;
+    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 22px;
+    background: #fffdf3;
+    border: 2px solid #8ea33d;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(38, 53, 31, 0.10);
+    color: #26351f;
+}
+
+
+.footer-enquiry h2 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    text-align: center;
+    color: #385b24;
+}
+
+.footer-enquiry-intro {
+    margin: 0 0 25px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.footer-form-group {
+    margin-bottom: 20px;
+}
+
+.footer-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #26351f;
+}
+
+.footer-form-group input,
+.footer-form-group textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid #b9c49d;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #26351f;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.footer-form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.footer-form-group input:focus,
+.footer-form-group textarea:focus {
+    outline: 2px solid #8ea33d;
+    border-color: #385b24;
+}
+
+.footer-enquiry-button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #385b24;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer-enquiry-button:hover {
+    background: #597b2d;
+}
+
+.footer-enquiry-note {
+    margin: 18px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    color: #626857;
+}
+
+.footer-bottom {
+    margin-top: 25px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .footer-enquiry {
+        padding: 22px 16px;
+        margin: 25px auto;
+    }
+
+    .footer-enquiry h2 {
+        font-size: 23px;
+    }
+
+    .footer-form-group input,
+    .footer-form-group textarea {
+        font-size: 16px;
+    }
+}
+
+
+
+
     </style>
 
 </head>
 
 
 <body>
+
 
 
 <!-- ==========================================================
@@ -3509,9 +3629,7 @@ backdrop-filter: blur(5px);
 
             <div class="brand-text">
 
-                <h1>
-                    eLight EV Parts
-                </h1>
+                <h1>eLight EV Parts</h1>
 
                 <span>
                     Your EV Deserves Extra Care
@@ -3522,30 +3640,34 @@ backdrop-filter: blur(5px);
         </a>
 
 
-       <nav>
+        <nav>
 
-  <nav>
+            <button class="active"
+                    onclick="goHome()">
+                Home
+            </button>
 
-    <button class="active" onclick="goHome()">
-        Home
-    </button>
+            <button
+                onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
+                Find Your EV
+            </button>
 
-    <button
-        onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">
-        Find Your EV
-    </button>
+            <button
+                onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+                About
+            </button>
 
-    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-        About
-    </button>
-</nav>
+            <button
+                class="enquiry-nav-button"
+                onclick="document.getElementById('part-enquiry').scrollIntoView({behavior:'smooth'})">
+                Submit Your Enquiry
+            </button>
 
-
+        </nav>
 
     </div>
 
 </header>
-
 
 <!-- ==========================================================
      HERO / HOME
@@ -4012,22 +4134,18 @@ backdrop-filter: blur(5px);
     <section class="about-section"
              id="about">
 
-        <div class="section-heading">
+      
+<div class="section-heading">
 
-            <h2>
+    <h2 style="color: white;">
+        About eLight EV Parts
+    </h2>
 
-                About eLight EV Parts
+    <p style="color: white;">
+        Stage 1 — EV information platform
+    </p>
 
-            </h2>
-
-
-            <p>
-
-                Stage 1 — EV information platform
-
-            </p>
-
-        </div>
+</div>
 
 
         <div class="about-card">
@@ -4070,8 +4188,9 @@ backdrop-filter: blur(5px);
 </main>
 
 
+
 <!-- ==========================================================
-     FOOTER
+     FOOTER WITH LARGE PART ENQUIRY FORM
 ========================================================== -->
 
 <footer>
@@ -4083,23 +4202,120 @@ backdrop-filter: blur(5px);
             <img src="ev5.png"
                  alt="eLight EV Parts Logo">
 
-
             <div>
+                <h3>eLight EV Parts</h3>
 
-                <h3>
+                <p>Your EV Deserves Extra Care.</p>
+            </div>
 
-                    eLight EV Parts
-
-                </h3>
+        </div>
 
 
-                <p>
+        <!-- LARGE PART ENQUIRY BOX -->
 
-                    Your EV Deserves Extra Care.
+        <div class="footer-enquiry" id="part-enquiry">
 
+            <h2>Ask for Part Details</h2>
+
+            <p class="footer-enquiry-intro">
+                Looking for information about an EV spare part?
+                Let us know your requirements, and we will help you.
+            </p>
+
+            <form
+                action="https://formsubmit.co/elightresearch.team@gmail.com"
+                method="POST">
+
+                <input type="hidden"
+                       name="_subject"
+                       value="New eLight EV Parts Enquiry">
+
+                <input type="hidden"
+                       name="_captcha"
+                       value="false">
+
+                <div class="footer-form-group">
+
+                    <label for="enquiry-name">Your Name</label>
+
+                    <input
+                        type="text"
+                        id="enquiry-name"
+                        name="Name"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <div class="footer-form-group">
+
+                    <label for="enquiry-email">Your Email</label>
+
+                    <input
+                        type="email"
+                        id="enquiry-email"
+                        name="Email"
+                        placeholder="Enter your email address"
+                        required>
+
+                </div>
+
+
+                <div class="footer-form-group">
+
+                    <label for="enquiry-model">EV Model</label>
+
+                    <input
+                        type="text"
+                        id="enquiry-model"
+                        name="EV Model"
+                        placeholder="Example: TVS iQube">
+
+                </div>
+
+
+                <div class="footer-form-group">
+
+                    <label for="enquiry-part">Part Name</label>
+
+                    <input
+                        type="text"
+                        id="enquiry-part"
+                        name="Part Name"
+                        placeholder="Example: Battery, BMS, Controller"
+                        required>
+
+                </div>
+
+
+                <div class="footer-form-group">
+
+                    <label for="enquiry-details">
+                        Tell Us the Part Details You Need
+                    </label>
+
+                    <textarea
+                        id="enquiry-details"
+                        name="Part Details"
+                        rows="6"
+                        placeholder="Describe the part, vehicle variant, part number, or information you need..."
+                        required></textarea>
+
+                </div>
+
+
+                <button type="submit" class="footer-enquiry-button">
+                    Send Part Enquiry
+                </button>
+
+                <p class="footer-enquiry-note">
+                    We will review your request and help you find
+                    relevant part information. Compatibility must
+                    be verified before purchase or installation.
                 </p>
 
-            </div>
+            </form>
 
         </div>
 
